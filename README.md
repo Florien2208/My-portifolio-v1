@@ -27,7 +27,7 @@ Before you begin, ensure you have the following installed:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/portfolio.git
+   git clone https://github.com/florien2208/portfolio.git
    cd portfolio
    ```
 
@@ -54,7 +54,7 @@ Add instructions for deploying your portfolio to your chosen hosting platform (e
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/yourusername/portfolio/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/florien2208/portfolio/issues).
 
 ## 📝 License
 
