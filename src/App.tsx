@@ -1,3 +1,31 @@
+import { ThemeProvider } from "./components/constants/ThemeContext";
+import Layout from "./layout/Layout";
+import Home from "./pages/Home";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 export default function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "",
+          element: <Home />,
+        },
+        // {
+        //   path: "insurance",
+        //   element: <Insurance />,
+        // },
+      ],
+    },
+  ]);
+
+  return (
+    <div>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </div>
+  );
 }
