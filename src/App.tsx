@@ -13,10 +13,7 @@ export default function App() {
           path: "",
           element: <Home />,
         },
-        // {
-        //   path: "insurance",
-        //   element: <Insurance />,
-        // },
+     
       ],
     },
   ]);

@@ -56,9 +56,7 @@ Add instructions for deploying your portfolio to your chosen hosting platform (e
 
 Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/florien2208/portfolio/issues).
 
-## 📝 License
 
-This project is [MIT](https://opensource.org/licenses/MIT) licensed.
 
 ## 📬 Contact
 
