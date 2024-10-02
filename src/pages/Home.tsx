@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import profile from "../assets/r.jpg"
+import prof from "../assets/devices.svg"
 import { ThemeContext } from "../components/constants/ThemeContext";
 
 const HomePage: React.FC = () => {
@@ -11,8 +12,6 @@ const HomePage: React.FC = () => {
         isDarkMode ? "bg-gray-900" : "bg-gray-100"
       }`}
     >
-      
-
       <main className="flex-grow flex items-center justify-center p-4">
         <div
           className={`rounded-lg shadow-lg p-6 max-w-md w-full ${
@@ -69,6 +68,16 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </main>
+      <div className=" p-8 flex items-center justify-center">
+        <div className="relative flex items-end space-x-4">
+          <img
+            src={prof}
+            alt="Web development tools"
+            className="max-w-3xl w-full"
+          />
+         
+        </div>
+      </div>
     </div>
   );
 };
