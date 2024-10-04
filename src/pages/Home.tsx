@@ -3,11 +3,12 @@ import profile from "../assets/r.jpg"
 import prof from "../assets/devices.svg"
 import dj from "../assets/dj.jpg"
 import { ThemeContext } from "../components/constants/ThemeContext";
-import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaTwitter, FaLinkedin, FaBriefcase, FaGraduationCap } from "react-icons/fa";
 
 const HomePage: React.FC = () => {
   const { isDarkMode } = useContext(ThemeContext);
-
+// const textColor = isDarkMode ? "text-gray-200" : "text-gray-800";
+// const headingColor = isDarkMode ? "text-white" : "text-black";
   return (
     <div
       className={`min-h-screen flex flex-col ${
@@ -178,6 +179,184 @@ const HomePage: React.FC = () => {
           </p>
         </div>
       </main>
+      <div className="mt-12">
+        <h2
+          className={`text-2xl font-bold mb-6 ${
+            isDarkMode ? "text-white" : "text-black"
+          }`}
+        >
+          Work Experience
+        </h2>
+
+        <div className="mb-8">
+          <div className="flex items-center mb-2">
+            <FaBriefcase className="text-purple-500 mr-2" size={30} />
+            <h3
+              className={`text-xl font-semibold ${
+                isDarkMode ? "text-purple-400" : "text-purple-700"
+              }`}
+            >
+              Cloud Analogy
+            </h3>
+          </div>
+          <p
+            className={`text-lg font-medium ${
+              isDarkMode ? "text-purple-300" : "text-purple-600"
+            }`}
+          >
+            Sr. Full Stack developer
+          </p>
+          <p
+            className={`text-sm ${
+              isDarkMode ? "text-gray-400" : "text-gray-600"
+            } mb-2`}
+          >
+            Sep, 2023 - Present
+          </p>
+          <ul
+            className={`list-disc list-inside ${
+              isDarkMode ? "text-gray-200" : "text-gray-800"
+            }`}
+          >
+            <li>
+              Design and establish user-friendly websites, including optimised
+              check-out page, resulting in a 25% increase in user clicks and
+              subsequently 31% in customer purchases.
+            </li>
+            <li>
+              Provide adequate training to 45+ junior frontend and Backend
+              developers in internal functions, including steps on how to make
+              minor updates/changes independently.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3
+            className={`text-xl font-semibold ${
+              isDarkMode ? "text-purple-300" : "text-purple-700"
+            } mb-2`}
+          >
+            Full Stack Developer
+          </h3>
+          <p
+            className={`text-sm ${
+              isDarkMode ? "text-gray-400" : "text-gray-600"
+            } mb-2`}
+          >
+            Sep, 2020 - Sep, 2023
+          </p>
+          <ul
+            className={`list-disc list-inside ${
+              isDarkMode ? "text-gray-200" : "text-gray-800"
+            }`}
+          >
+            <li>
+              Administer the full lifecycle of software development for 9
+              critical projects of the company with 100% on-time delivery while
+              staying 7% under budget.
+            </li>
+            <li>
+              Built and maintained 100% of backend REST services using Python or
+              Node.js.
+            </li>
+            <li>
+              Proactively liaised with the design team and project manager to
+              ensure efficient and timely delivery.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="mt-12">
+        <h2
+          className={`text-2xl font-bold mb-6 ${
+            isDarkMode ? "text-white" : "text-black"
+          }`}
+        >
+          Education
+        </h2>
+
+        <div className="mb-8">
+          <div className="flex items-center mb-2">
+            <FaGraduationCap className="text-purple-500 mr-2" size={30} />
+            <h3
+              className={`text-xl font-semibold ${
+                isDarkMode ? "text-purple-400" : "text-purple-700"
+              }`}
+            >
+              Bachelor of Technology (CSE)
+            </h3>
+          </div>
+          <p
+            className={`text-lg font-medium ${
+              isDarkMode ? "text-gray-300" : "text-gray-600"
+            }`}
+          >
+            Integral University
+          </p>
+          <p
+            className={`text-sm ${
+              isDarkMode ? "text-gray-400" : "text-gray-600"
+            } mb-2`}
+          >
+            July, 2016 - June, 2020
+          </p>
+        </div>
+
+        <div className="mb-8">
+          <div className="flex items-center mb-2">
+            <FaGraduationCap className="text-purple-500 mr-2" size={30} />
+            <h3
+              className={`text-xl font-semibold ${
+                isDarkMode ? "text-purple-400" : "text-purple-700"
+              }`}
+            >
+              Intermediate
+            </h3>
+          </div>
+          <p
+            className={`text-lg font-medium ${
+              isDarkMode ? "text-gray-300" : "text-gray-600"
+            }`}
+          >
+            St Mary's
+          </p>
+          <p
+            className={`text-sm ${
+              isDarkMode ? "text-gray-400" : "text-gray-600"
+            } mb-2`}
+          >
+            July, 2015 - June, 2016
+          </p>
+        </div>
+
+        <div>
+          <div className="flex items-center mb-2">
+            <FaGraduationCap className="text-purple-500 mr-2" size={30} />
+            <h3
+              className={`text-xl font-semibold ${
+                isDarkMode ? "text-purple-400" : "text-purple-700"
+              }`}
+            >
+              Secondary School
+            </h3>
+          </div>
+          <p
+            className={`text-lg font-medium ${
+              isDarkMode ? "text-gray-300" : "text-gray-600"
+            }`}
+          >
+            St Mary's
+          </p>
+          <p
+            className={`text-sm ${
+              isDarkMode ? "text-gray-400" : "text-gray-600"
+            } mb-2`}
+          >
+            July, 2013 - June, 2014
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
