@@ -1,14 +1,18 @@
 import React, { useContext } from "react";
 import profile from "../assets/r.jpg"
 import prof from "../assets/devices.svg"
+import skills from "../assets/skills.svg"
 import dj from "../assets/dj.jpg"
 import { ThemeContext } from "../components/constants/ThemeContext";
 import { FaGithub, FaTwitter, FaLinkedin, FaBriefcase, FaGraduationCap } from "react-icons/fa";
+import { categories } from "../constants/TechStackTypes";
 
 const HomePage: React.FC = () => {
   const { isDarkMode } = useContext(ThemeContext);
-// const textColor = isDarkMode ? "text-gray-200" : "text-gray-800";
-// const headingColor = isDarkMode ? "text-white" : "text-black";
+  const bgColor = isDarkMode ? "bg-purple-900" : "bg-purple-100";
+  const textColor = isDarkMode ? "text-white" : "text-purple-900";
+  const cardBgColor = isDarkMode ? "bg-purple-800" : "bg-purple-200";
+  const headerBgColor = isDarkMode ? "bg-purple-700" : "bg-purple-300";
   return (
     <div
       className={`min-h-screen flex flex-col ${
@@ -355,6 +359,52 @@ const HomePage: React.FC = () => {
           >
             July, 2013 - June, 2014
           </p>
+        </div>
+      </div>
+      <div className={`p-8 font-sans ${bgColor} ${textColor}`}>
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-3xl font-bold">Tech Stack Overview</h1>
+          {/* <button
+            onClick={toggleDarkMode}
+            className="p-2 rounded-full hover:bg-purple-700 dark:hover:bg-purple-600"
+          >
+            {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}
+          </button> */}
+        </div>
+        <div className="grid grid-cols-4 gap-4 mb-6">
+          {categories.slice(0, 4).map((cat, index) => (
+            <div
+              key={index}
+              className={`${headerBgColor} rounded-lg p-3 text-center`}
+            >
+              <h2 className="text-xl font-bold">{cat.title}</h2>
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-4 gap-4">
+          {categories.map((category, index) => (
+            <div key={index} className={`${cardBgColor} rounded-lg p-4`}>
+              <h3 className="text-lg font-semibold mb-2">
+                {category.subTitle}
+              </h3>
+              <ul className="list-disc list-inside">
+                {category.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="text-sm">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className=" p-8 flex items-center justify-center">
+        <div className="relative flex items-end space-x-4">
+          <img
+            src={skills}
+            alt="Web development tools"
+            className="max-w-3xl w-full"
+          />
         </div>
       </div>
     </div>
