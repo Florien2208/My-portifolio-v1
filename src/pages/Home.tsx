@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import profile from "../assets/r.jpg"
 import prof from "../assets/devices.svg"
 import skills from "../assets/skills.svg"
+import integrations from "../assets/integrations.svg";
 import dj from "../assets/dj.jpg"
 import { ThemeContext } from "../components/constants/ThemeContext";
 import { FaGithub, FaTwitter, FaLinkedin, FaBriefcase, FaGraduationCap } from "react-icons/fa";
@@ -398,6 +399,42 @@ const HomePage: React.FC = () => {
           ))}
         </div>
       </div>
+      <div
+        className={`flex flex-col items-center justify-center min-h-screen ${
+          isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
+        }`}
+      >
+        <div className="text-center">
+          <h2
+            className={`text-4xl font-bold mb-8 ${
+              isDarkMode ? "text-purple-400" : "text-purple-600"
+            }`}
+          >
+            What I love doing?
+          </h2>
+          <p
+            className={`max-w-2xl mx-auto text-lg ${
+              isDarkMode ? "text-gray-300" : "text-gray-700"
+            }`}
+          >
+            Crafting sophisticated small to medium-scale web applications,
+            dynamic features, captivating animations, and designing interactive
+            layouts through advanced coding techniques.
+          </p>
+          <div className="mt-8">
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-blue-500 hover:underline ${
+                isDarkMode ? "text-blue-400" : "text-blue-600"
+              }`}
+            >
+              Visit my Linkedin for more details.
+            </a>
+          </div>
+        </div>
+      </div>
       <div className=" p-8 flex items-center justify-center">
         <div className="relative flex items-end space-x-4">
           <img
@@ -405,6 +442,61 @@ const HomePage: React.FC = () => {
             alt="Web development tools"
             className="max-w-3xl w-full"
           />
+        </div>
+      </div>
+      <div
+        className={`flex flex-col items-center justify-center min-h-screen ${
+          isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
+        }`}
+      >
+        <div className="text-center">
+          <h2
+            className={`text-4xl font-bold mb-8 ${
+              isDarkMode ? "text-purple-400" : "text-purple-600"
+            }`}
+          >
+            Integrations
+          </h2>
+          <p
+            className={`max-w-2xl mx-auto text-lg ${
+              isDarkMode ? "text-gray-300" : "text-gray-700"
+            }`}
+          >
+            Integrations which makes hassle-free Experience
+          </p>
+        </div>
+      </div>
+      <div className=" p-8 flex items-center justify-center">
+        <div className="relative flex items-end space-x-4">
+          <img
+            src={integrations}
+            alt="Web development tools"
+            className="max-w-3xl w-full"
+          />
+        </div>
+      </div>
+      <div
+        className={`flex flex-col items-center justify-center min-h-screen ${
+          isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
+        }`}
+      >
+        <div className="text-center">
+          <h2
+            className={`text-4xl font-bold mb-8 ${
+              isDarkMode ? "text-purple-400" : "text-purple-600"
+            }`}
+          >
+            Solutions
+          </h2>
+          <p
+            className={`max-w-2xl mx-auto text-lg ${
+              isDarkMode ? "text-gray-300" : "text-gray-700"
+            }`}
+          >
+            Unlock a world of exceptional services tailored to your needs,
+            ranging from full-stack wizardry to mesmerizing frontend design and
+            powerhouse backend development.
+          </p>
         </div>
       </div>
     </div>
