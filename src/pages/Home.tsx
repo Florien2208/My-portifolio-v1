@@ -7,6 +7,8 @@ import dj from "../assets/dj.jpg"
 import { ThemeContext } from "../components/constants/ThemeContext";
 import { FaGithub, FaTwitter, FaLinkedin, FaBriefcase, FaGraduationCap } from "react-icons/fa";
 import { categories } from "../constants/TechStackTypes";
+import DevelopmentServicesCard from "./DevelopmentServices";
+import WallOfTestimonial from "./WallOfTestimonial";
 
 const HomePage: React.FC = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -498,7 +500,9 @@ const HomePage: React.FC = () => {
             powerhouse backend development.
           </p>
         </div>
+        <DevelopmentServicesCard/>
       </div>
+      <WallOfTestimonial/>
     </div>
   );
 };
