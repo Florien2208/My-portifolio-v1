@@ -199,7 +199,7 @@ const HomePage: React.FC = () => {
                 isDarkMode ? "bg-gray-800" : "bg-white"
               }`}
             >
-              <span className="text-purple-600 font-semibold text-xl">
+              <span className="text-purple-600 font-bold text-2xl">
                 About me
               </span>
             </div>
@@ -291,8 +291,17 @@ const HomePage: React.FC = () => {
           isDarkMode ? " text-white" : " text-black"
         }`}
       >
-        <h2 className="text-3xl font-bold mb-6">Work Experience</h2>
-
+        <div
+          className={`rounded-lg px-6 justify-self-center py-2 ${
+            isDarkMode ? "bg-gray-800" : "bg-white"
+          }`}
+        >
+          <span className="text-purple-600 font-bold text-2xl">
+            Work Experience
+          </span>
+        </div>
+        <br />
+        <br />
         <div className="mb-8">
           <div className="flex items-start mb-2">
             <Briefcase
@@ -408,13 +417,15 @@ const HomePage: React.FC = () => {
       </section>
       <section className="flex-grow flex items-center justify-center p-4">
         <div className="max-w-2xl w-full mt-12">
-          <h2
-            className={`text-2xl font-bold mb-6 ${
-              isDarkMode ? "text-white" : "text-black"
+          <div
+            className={`rounded-lg px-6 justify-self-center py-2 mb-10 ${
+              isDarkMode ? "bg-gray-800" : "bg-white"
             }`}
           >
-            Education
-          </h2>
+            <span className="text-purple-600 font-bold text-2xl">
+              Education
+            </span>
+          </div>
 
           <div className="mb-8">
             <div className="flex items-center mb-2">
@@ -498,88 +509,90 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-      <div className={`p-8 font-sans ${bgColor} ${textColor}`}>
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold">Tech Stack Overview</h1>
-          {/* <button
-            onClick={toggleDarkMode}
-            className="p-2 rounded-full hover:bg-purple-700 dark:hover:bg-purple-600"
-          >
-            {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}
-          </button> */}
-        </div>
-        <div className="grid grid-cols-4 gap-4 mb-6">
-          {categories.slice(0, 4).map((cat, index) => (
-            <div
-              key={index}
-              className={`${headerBgColor} rounded-lg p-3 text-center`}
-            >
-              <h2 className="text-xl font-bold">{cat.title}</h2>
-            </div>
-          ))}
-        </div>
-        <div className="grid grid-cols-4 gap-4">
-          {categories.map((category, index) => (
-            <div key={index} className={`${cardBgColor} rounded-lg p-4`}>
-              <h3 className="text-lg font-semibold mb-2">
-                {category.subTitle}
-              </h3>
-              <ul className="list-disc list-inside">
-                {category.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="text-sm">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div
-        className={`flex flex-col items-center justify-center min-h-screen ${
-          isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
-        }`}
-      >
-        <div className="text-center">
-          <h2
-            className={`text-4xl font-bold mb-8 ${
-              isDarkMode ? "text-purple-400" : "text-purple-600"
-            }`}
-          >
-            What I love doing?
-          </h2>
-          <p
-            className={`max-w-2xl mx-auto text-lg ${
-              isDarkMode ? "text-gray-300" : "text-gray-700"
-            }`}
-          >
-            Crafting sophisticated small to medium-scale web applications,
-            dynamic features, captivating animations, and designing interactive
-            layouts through advanced coding techniques.
-          </p>
-          <div className="mt-8">
-            <a
-              href="https://www.linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`text-blue-500 hover:underline ${
-                isDarkMode ? "text-blue-400" : "text-blue-600"
-              }`}
-            >
-              Visit my Linkedin for more details.
-            </a>
+      <section className="flex-grow flex items-center justify-center p-4">
+        <div
+          className={`p-8 max-w-2xl w-full font-sans ${bgColor} ${textColor}`}
+        >
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="text-3xl font-bold">Tech Stack Overview</h1>
+          </div>
+          <div className="grid grid-cols-4 gap-4 mb-6">
+            {categories.slice(0, 4).map((cat, index) => (
+              <div
+                key={index}
+                className={`${headerBgColor} rounded-lg p-3 text-center`}
+              >
+                <h2 className="text-xl font-bold">{cat.title}</h2>
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-4 gap-4">
+            {categories.map((category, index) => (
+              <div key={index} className={`${cardBgColor} rounded-lg p-4`}>
+                <h3 className="text-lg font-semibold mb-2">
+                  {category.subTitle}
+                </h3>
+                <ul className="list-disc list-inside">
+                  {category.items.map((item, itemIndex) => (
+                    <li key={itemIndex} className="text-sm">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-      <div className=" p-8 flex items-center justify-center">
-        <div className="relative flex items-end space-x-4">
-          <img
-            src={skills}
-            alt="Web development tools"
-            className="max-w-3xl w-full"
-          />
+      </section>
+      <section className="flex-grow flex items-center justify-center p-4">
+        <div
+          className={`flex flex-col max-w-2xl w-full items-center justify-center min-h-screen ${
+            isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
+          }`}
+        >
+          <div className="text-center">
+            <h2
+              className={`text-4xl font-bold mb-8 ${
+                isDarkMode ? "text-purple-400" : "text-purple-600"
+              }`}
+            >
+              What I love doing?
+            </h2>
+            <p
+              className={`max-w-2xl mx-auto text-lg ${
+                isDarkMode ? "text-gray-300" : "text-gray-700"
+              }`}
+            >
+              Crafting sophisticated small to medium-scale web applications,
+              dynamic features, captivating animations, and designing
+              interactive layouts through advanced coding techniques.
+            </p>
+            <div className="mt-8">
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`text-blue-500 hover:underline ${
+                  isDarkMode ? "text-blue-400" : "text-blue-600"
+                }`}
+              >
+                Visit my Linkedin for more details.
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+      <section className=" flex items-center justify-center p-4">
+        <div className=" p-8 flex flex-grow bg-blue-500 items-center justify-center">
+          <div className="relative flex items-end space-x-4">
+            <img
+              src={skills}
+              alt="Web development tools"
+              className="max-w-3xl w-full"
+            />
+          </div>
+        </div>
+      </section>
       <div
         className={`flex flex-col items-center justify-center min-h-screen ${
           isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
