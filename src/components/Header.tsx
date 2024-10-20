@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import  { useContext, useState } from "react";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { ThemeContext } from "./constants/ThemeContext";
 
@@ -11,12 +11,12 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 ${
-        isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+        isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
       } transition-colors duration-200`}
     >
       <div className="max-w-7xl m-auto px-6">
         <div className="flex justify-between items-center h-20">
-          {/* Mobile Menu Button */}
+          
           <button
             onClick={toggleMenu}
             className="md:hidden p-2"
@@ -90,7 +90,7 @@ const Header = () => {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t">
+          <div className="md:hidden py-4 border-t ">
             <nav className="flex flex-col space-y-4">
               <a
                 href="#"
