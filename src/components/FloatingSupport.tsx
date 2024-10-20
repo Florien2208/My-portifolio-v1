@@ -34,10 +34,10 @@ const FloatingSupport = () => {
           >
             <button
               onClick={toggleModal}
-              className="h-12 bg-green-700 rounded-full flex items-center pr-4 pl-12 -mr-12 shadow-lg hover:bg-green-800 transition-colors"
+              className="h-12 bg-green-700 rounded-full flex items-center pr-4 pl-6 -mr-12 shadow-lg hover:bg-green-800 transition-colors"
             >
               <span className="text-white font-medium whitespace-nowrap">
-                SUPPORT ?
+                CONTACT US&nbsp;&nbsp; ?
               </span>
             </button>
           </div>
