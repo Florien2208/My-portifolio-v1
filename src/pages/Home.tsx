@@ -5,10 +5,11 @@ import skills from "../assets/skills.svg"
 import integrations from "../assets/integrations.svg";
 import dj from "../assets/dj.jpg"
 import { ThemeContext } from "../components/constants/ThemeContext";
-import { FaGithub, FaTwitter, FaLinkedin, FaBriefcase, FaGraduationCap } from "react-icons/fa";
+import { FaGithub, FaTwitter, FaLinkedin, FaGraduationCap } from "react-icons/fa";
 import { categories } from "../constants/TechStackTypes";
 import DevelopmentServicesCard from "./DevelopmentServices";
 import WallOfTestimonial from "./WallOfTestimonial";
+import { Briefcase } from "lucide-react";
 
 const HomePage: React.FC = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -39,85 +40,37 @@ const HomePage: React.FC = () => {
                 isDarkMode ? "text-purple-400" : "text-purple-600"
               }`}
             >
-              👋 Hey, I'm Mohd Arshad
+              👋 Hey, I'm MAHORO MPAKANYI Florien
             </span>
           </div>
 
-          {/* Main content */}
-          <div className="flex items-start justify-between gap-8">
-            {/* Text content */}
-            <div className="flex-1">
-              <h2
-                className={`text-lg font-semibold mb-4 ${
-                  isDarkMode ? "text-gray-200" : "text-gray-800"
-                }`}
-              >
-                Having Experience as a{" "}
-                <span
-                  className={`text-2xl ${
-                    isDarkMode ? "text-white" : "text-black"
-                  }`}
-                >
-                  PythonDeveloper
-                </span>
-              </h2>
-              <p
-                className={`text-lg mb-8 ${
-                  isDarkMode ? "text-gray-400" : "text-gray-600"
-                }`}
-              >
-                allows me to navigate various aspects of
-                <br />
-                software development. "I bring a <br />
-                comprehensive approach to building <br />
-                scalable and efficient systems" refers to the
-                <br /> diverse skill set implied by the listed
-                <br /> designations.
-              </p>
-
-              {/* Buttons */}
-              <div className="flex gap-4">
-                <button className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">
-                  Schedule Call
-                </button>
-                <button
-                  className={`font-medium py-3 px-6 rounded-lg transition-colors ${
-                    isDarkMode
-                      ? "border border-gray-600 text-white hover:bg-gray-800"
-                      : "border border-gray-300 text-gray-800 hover:bg-gray-100"
-                  }`}
-                >
-                  Download CV
-                </button>
-              </div>
-            </div>
-
-            {/* Profile image with SVG blob */}
-            <div className="w-60 h-60 flex-shrink-0">
+          {/* Profile image for small screens */}
+          <div className="md:hidden mb-8 flex justify-center">
+            <div className="w-48 h-48 flex-shrink-0">
               <svg
                 className="w-full h-full"
                 viewBox="0 0 200 187"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
               >
-                <mask id="mask0">
+                <mask id="mask0_mobile">
                   <path
                     fill="white"
                     d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-        165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 
-        21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 
-        10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 
-        10.857 190.312 36.4879Z"
+              165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 
+              21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 
+              10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 
+              10.857 190.312 36.4879Z"
                   />
                 </mask>
-                <g mask="url(#mask0)">
+                <g mask="url(#mask0_mobile)">
                   <path
                     fill="#8B5CF6"
                     d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-        165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 
-        21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 
-        10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 
-        10.857 190.312 36.4879Z"
+              165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 
+              21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 
+              10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 
+              10.857 190.312 36.4879Z"
                   />
                   <image
                     className="home__blob-img"
@@ -132,21 +85,111 @@ const HomePage: React.FC = () => {
               </svg>
             </div>
           </div>
+
+          {/* Main content */}
+          <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
+            {/* Text content */}
+            <div className="flex-1 text-center md:text-left">
+              <h2
+                className={`text-lg font-semibold mb-4 ${
+                  isDarkMode ? "text-gray-200" : "text-gray-800"
+                }`}
+              >
+                Having Experience as a{" "}
+                <span
+                  className={`text-xl md:text-2xl ${
+                    isDarkMode ? "text-white" : "text-black"
+                  }`}
+                >
+                  PythonDeveloper
+                </span>
+              </h2>
+              <p
+                className={`text-base md:text-lg mb-8 ${
+                  isDarkMode ? "text-gray-400" : "text-gray-600"
+                }`}
+              >
+                allows me to navigate various aspects of software development.
+                "I bring a comprehensive approach to building scalable and
+                efficient systems" refers to the diverse skill set implied by
+                the listed designations.
+              </p>
+
+              {/* Buttons */}
+              <div className="flex flex-row sm:flex-row gap-4 justify-center md:justify-start">
+                <button className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 md:py-3 px-4 md:px-6 rounded-lg transition-colors w-full sm:w-auto">
+                  Schedule Call
+                </button>
+                <button
+                  className={`font-medium py-2 md:py-3 px-4 md:px-6 rounded-lg transition-colors w-full sm:w-auto ${
+                    isDarkMode
+                      ? "border border-gray-600 text-white hover:bg-gray-800"
+                      : "border border-gray-300 text-gray-800 hover:bg-gray-100"
+                  }`}
+                >
+                  Download CV
+                </button>
+              </div>
+            </div>
+
+            {/* Profile image for medium screens and up */}
+            <div className="hidden md:block w-60 h-60 flex-shrink-0">
+              <svg
+                className="w-full h-full"
+                viewBox="0 0 200 187"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                <mask id="mask0_desktop">
+                  <path
+                    fill="white"
+                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
+              165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 
+              21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 
+              10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 
+              10.857 190.312 36.4879Z"
+                  />
+                </mask>
+                <g mask="url(#mask0_desktop)">
+                  <path
+                    fill="#8B5CF6"
+                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
+              165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 
+              21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 
+              10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 
+              10.857 190.312 36.4879Z"
+                  />
+                  <image
+                    className=""
+                    xlinkHref={profile}
+                    x="0"
+                    y="0"
+                    width="200"
+                    height="200"
+                    preserveAspectRatio="xMidYMid slice"
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
         </div>
       </section>
-
-      <div className=" p-8 flex items-center justify-center">
-        <div className="relative flex items-end space-x-4">
+      <br />
+      <br />
+      <section className=" p-8 flex items-center justify-center">
+        <div className="relative flex items-end  space-x-4">
           <img
             src={prof}
             alt="Web development tools"
-            className="max-w-3xl w-full"
+            className="max-w-2xl w-full "
           />
         </div>
-      </div>
-      <main className="flex-grow flex items-center justify-center p-4">
+      </section>
+      <br />
+      <br />
+      <section className="flex-grow flex items-center justify-center p-4">
         <div
-          className={`max-w-4xl w-full ${
+          className={`max-w-2xl w-full ${
             isDarkMode ? "text-gray-200" : "text-gray-800"
           }`}
         >
@@ -161,7 +204,7 @@ const HomePage: React.FC = () => {
               </span>
             </div>
           </div>
-
+          <br />
           <p className="text-center text-lg mb-8 max-w-2xl mx-auto">
             Here you'll discover additional insights about me, my expertise, and
             a comprehensive overview of my current programming and technological
@@ -170,19 +213,19 @@ const HomePage: React.FC = () => {
 
           {/* You can add more content here as needed */}
         </div>
-      </main>
+      </section>
       <main className="flex-grow flex items-center justify-center p-4">
-        <div className="max-w-4xl w-full">
+        <div className="max-w-2xl w-full">
           <div
-            className={`rounded-lg p-6 mb-8 ${
+            className={`rounded-lg p-6   mb-8 ${
               isDarkMode ? "bg-gray-800" : "bg-white"
             } shadow-lg`}
           >
-            <div className="flex items-center mb-4">
+            <div className="flex items-center ml-8 mb-4">
               <img
                 src={dj}
                 alt="Mohd Arshad"
-                className="w-16 h-16 rounded-full mr-4"
+                className="w-16 h-16 rounded-full mr-6"
               />
               <div>
                 <h1
@@ -201,7 +244,7 @@ const HomePage: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="flex space-x-4 mt-4">
+            <div className="flex space-x-4 ml-8 mt-6">
               <FaGithub
                 className={`${
                   isDarkMode
@@ -243,42 +286,52 @@ const HomePage: React.FC = () => {
           </p>
         </div>
       </main>
-      <div className="mt-12">
-        <h2
-          className={`text-2xl font-bold mb-6 ${
-            isDarkMode ? "text-white" : "text-black"
-          }`}
-        >
-          Work Experience
-        </h2>
+      <section
+        className={`p-8 max-w-3xl mx-auto ${
+          isDarkMode ? " text-white" : " text-black"
+        }`}
+      >
+        <h2 className="text-3xl font-bold mb-6">Work Experience</h2>
 
         <div className="mb-8">
-          <div className="flex items-center mb-2">
-            <FaBriefcase className="text-purple-500 mr-2" size={30} />
-            <h3
-              className={`text-xl font-semibold ${
-                isDarkMode ? "text-purple-400" : "text-purple-700"
+          <div className="flex items-start mb-2">
+            <Briefcase
+              className={`mr-3 ${
+                isDarkMode ? "text-purple-500" : "text-purple-700"
               }`}
-            >
-              Cloud Analogy
-            </h3>
+              size={24}
+            />
+            <div className="flex-grow">
+              <div className="">
+                <h3
+                  className={`text-xl font-semibold ${
+                    isDarkMode ? "text-purple-400" : "text-purple-700"
+                  }`}
+                >
+                  Cloud Analogy
+                </h3>
+              </div>
+              <div className="flex justify-between items-baseline">
+                <p
+                  className={`text-lg font-medium ${
+                    isDarkMode ? "text-purple-300" : "text-purple-600"
+                  }`}
+                >
+                  Sr. Full Stack developer
+                </p>
+                <span
+                  className={`text-sm font-semibold ${
+                    isDarkMode ? "text-gray-400" : "text-gray-600"
+                  }`}
+                >
+                  Sep, 2023 - Present
+                </span>
+              </div>
+            </div>
           </div>
-          <p
-            className={`text-lg font-medium ${
-              isDarkMode ? "text-purple-300" : "text-purple-600"
-            }`}
-          >
-            Sr. Full Stack developer
-          </p>
-          <p
-            className={`text-sm ${
-              isDarkMode ? "text-gray-400" : "text-gray-600"
-            } mb-2`}
-          >
-            Sep, 2023 - Present
-          </p>
+          <br />
           <ul
-            className={`list-disc list-inside ${
+            className={`list-disc list-outside ml-9 space-y-1 text-sm ${
               isDarkMode ? "text-gray-200" : "text-gray-800"
             }`}
           >
@@ -288,7 +341,7 @@ const HomePage: React.FC = () => {
               subsequently 31% in customer purchases.
             </li>
             <li>
-              Provide adequate training to 45+ junior frontend and Backend
+              Provide adequate training to 45+ junior frontend and backend
               developers in internal functions, including steps on how to make
               minor updates/changes independently.
             </li>
@@ -296,22 +349,44 @@ const HomePage: React.FC = () => {
         </div>
 
         <div>
-          <h3
-            className={`text-xl font-semibold ${
-              isDarkMode ? "text-purple-300" : "text-purple-700"
-            } mb-2`}
-          >
-            Full Stack Developer
-          </h3>
-          <p
-            className={`text-sm ${
-              isDarkMode ? "text-gray-400" : "text-gray-600"
-            } mb-2`}
-          >
-            Sep, 2020 - Sep, 2023
-          </p>
+          <div className="flex items-start mb-2">
+            <Briefcase
+              className={`mr-3 ${
+                isDarkMode ? "text-purple-500" : "text-purple-700"
+              }`}
+              size={24}
+            />
+            <div className="flex-grow">
+              <div className="">
+                <h3
+                  className={`text-xl font-semibold ${
+                    isDarkMode ? "text-purple-400" : "text-purple-700"
+                  }`}
+                >
+                  Cloud Analogy
+                </h3>
+              </div>
+              <div className="flex justify-between items-baseline">
+                <p
+                  className={`text-lg font-medium ${
+                    isDarkMode ? "text-purple-300" : "text-purple-600"
+                  }`}
+                >
+                  Sr. Full Stack engineer
+                </p>
+                <span
+                  className={`text-sm font-semibold ${
+                    isDarkMode ? "text-gray-400" : "text-gray-600"
+                  }`}
+                >
+                  Sep, 2020 - Sep, 2023
+                </span>
+              </div>
+            </div>
+          </div>
+          <br />
           <ul
-            className={`list-disc list-inside ${
+            className={`list-disc list-outside ml-9 space-y-1 text-sm ${
               isDarkMode ? "text-gray-200" : "text-gray-800"
             }`}
           >
@@ -330,97 +405,99 @@ const HomePage: React.FC = () => {
             </li>
           </ul>
         </div>
-      </div>
-      <div className="mt-12">
-        <h2
-          className={`text-2xl font-bold mb-6 ${
-            isDarkMode ? "text-white" : "text-black"
-          }`}
-        >
-          Education
-        </h2>
-
-        <div className="mb-8">
-          <div className="flex items-center mb-2">
-            <FaGraduationCap className="text-purple-500 mr-2" size={30} />
-            <h3
-              className={`text-xl font-semibold ${
-                isDarkMode ? "text-purple-400" : "text-purple-700"
-              }`}
-            >
-              Bachelor of Technology (CSE)
-            </h3>
-          </div>
-          <p
-            className={`text-lg font-medium ${
-              isDarkMode ? "text-gray-300" : "text-gray-600"
+      </section>
+      <section className="flex-grow flex items-center justify-center p-4">
+        <div className="max-w-2xl w-full mt-12">
+          <h2
+            className={`text-2xl font-bold mb-6 ${
+              isDarkMode ? "text-white" : "text-black"
             }`}
           >
-            Integral University
-          </p>
-          <p
-            className={`text-sm ${
-              isDarkMode ? "text-gray-400" : "text-gray-600"
-            } mb-2`}
-          >
-            July, 2016 - June, 2020
-          </p>
-        </div>
+            Education
+          </h2>
 
-        <div className="mb-8">
-          <div className="flex items-center mb-2">
-            <FaGraduationCap className="text-purple-500 mr-2" size={30} />
-            <h3
-              className={`text-xl font-semibold ${
-                isDarkMode ? "text-purple-400" : "text-purple-700"
+          <div className="mb-8">
+            <div className="flex items-center mb-2">
+              <FaGraduationCap className="text-purple-500 mr-2" size={30} />
+              <h3
+                className={`text-xl font-semibold ${
+                  isDarkMode ? "text-purple-400" : "text-purple-700"
+                }`}
+              >
+                Bachelor of Technology (CSE)
+              </h3>
+            </div>
+            <p
+              className={`text-lg font-medium ${
+                isDarkMode ? "text-gray-300" : "text-gray-600"
               }`}
             >
-              Intermediate
-            </h3>
+              Integral University
+            </p>
+            <p
+              className={`text-sm ${
+                isDarkMode ? "text-gray-400" : "text-gray-600"
+              } mb-2`}
+            >
+              July, 2016 - June, 2020
+            </p>
           </div>
-          <p
-            className={`text-lg font-medium ${
-              isDarkMode ? "text-gray-300" : "text-gray-600"
-            }`}
-          >
-            St Mary's
-          </p>
-          <p
-            className={`text-sm ${
-              isDarkMode ? "text-gray-400" : "text-gray-600"
-            } mb-2`}
-          >
-            July, 2015 - June, 2016
-          </p>
-        </div>
 
-        <div>
-          <div className="flex items-center mb-2">
-            <FaGraduationCap className="text-purple-500 mr-2" size={30} />
-            <h3
-              className={`text-xl font-semibold ${
-                isDarkMode ? "text-purple-400" : "text-purple-700"
+          <div className="mb-8">
+            <div className="flex items-center mb-2">
+              <FaGraduationCap className="text-purple-500 mr-2" size={30} />
+              <h3
+                className={`text-xl font-semibold ${
+                  isDarkMode ? "text-purple-400" : "text-purple-700"
+                }`}
+              >
+                Intermediate
+              </h3>
+            </div>
+            <p
+              className={`text-lg font-medium ${
+                isDarkMode ? "text-gray-300" : "text-gray-600"
               }`}
             >
-              Secondary School
-            </h3>
+              St Mary's
+            </p>
+            <p
+              className={`text-sm ${
+                isDarkMode ? "text-gray-400" : "text-gray-600"
+              } mb-2`}
+            >
+              July, 2015 - June, 2016
+            </p>
           </div>
-          <p
-            className={`text-lg font-medium ${
-              isDarkMode ? "text-gray-300" : "text-gray-600"
-            }`}
-          >
-            St Mary's
-          </p>
-          <p
-            className={`text-sm ${
-              isDarkMode ? "text-gray-400" : "text-gray-600"
-            } mb-2`}
-          >
-            July, 2013 - June, 2014
-          </p>
+
+          <div>
+            <div className="flex items-center mb-2">
+              <FaGraduationCap className="text-purple-500 mr-2" size={30} />
+              <h3
+                className={`text-xl font-semibold ${
+                  isDarkMode ? "text-purple-400" : "text-purple-700"
+                }`}
+              >
+                Secondary School
+              </h3>
+            </div>
+            <p
+              className={`text-lg font-medium ${
+                isDarkMode ? "text-gray-300" : "text-gray-600"
+              }`}
+            >
+              St Mary's
+            </p>
+            <p
+              className={`text-sm ${
+                isDarkMode ? "text-gray-400" : "text-gray-600"
+              } mb-2`}
+            >
+              July, 2013 - June, 2014
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
       <div className={`p-8 font-sans ${bgColor} ${textColor}`}>
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold">Tech Stack Overview</h1>
