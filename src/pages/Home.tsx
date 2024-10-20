@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import profile from "../assets/r.jpg"
+import profile from "../assets/dj.jpg"
 import prof from "../assets/devices.svg"
 import skills from "../assets/skills.svg"
 import integrations from "../assets/integrations.svg";
@@ -22,62 +22,119 @@ const HomePage: React.FC = () => {
         isDarkMode ? "bg-gray-900" : "bg-gray-100"
       }`}
     >
-      <main className="flex-grow flex items-center justify-center p-4">
-        <div
-          className={`rounded-lg shadow-lg p-6 max-w-md w-full ${
-            isDarkMode ? "bg-gray-800" : "bg-white"
-          }`}
-        >
-          <div className="flex flex-col items-center mb-6">
-            <div
-              className={`rounded-full py-2 px-4 mb-4 ${
-                isDarkMode ? "bg-gray-700" : "bg-gray-200"
-              }`}
-            >
-              <span
-                className={`${
-                  isDarkMode ? "text-purple-400" : "text-purple-600"
-                }`}
-              >
-                👋 Hey, I'm Mohd Arshad
-              </span>
-            </div>
-            <div className="w-24 h-24 bg-purple-600 rounded-full overflow-hidden mb-4">
-              <img
-                src={profile}
-                alt="Mohd Arshad"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          <p
-            className={`text-center mb-6 ${
-              isDarkMode ? "text-gray-300" : "text-gray-700"
+      <section
+        className={`flex-grow flex items-center justify-center p-4 ${
+          isDarkMode ? "bg-gray-900" : "bg-gray-100"
+        }`}
+      >
+        <div className="max-w-2xl w-full">
+          {/* Greeting pill */}
+          <div
+            className={`inline-block rounded-full px-4 py-2 mb-8 ${
+              isDarkMode ? "bg-gray-700/50" : "bg-gray-200"
             }`}
           >
-            Having Experience as a HeavyBE allows me to navigate various aspects
-            of software development. "I bring a comprehensive approach to
-            building scalable and efficient systems" refers to the diverse skill
-            set implied by the listed designations.
-          </p>
-
-          <div className="flex justify-center space-x-4">
-            <button className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
-              Schedule Call
-            </button>
-            <button
-              className={`bg-transparent font-bold py-2 px-4 rounded border ${
-                isDarkMode
-                  ? "hover:bg-gray-700 text-white border-gray-600"
-                  : "hover:bg-gray-200 text-gray-800 border-gray-300"
+            <span
+              className={`${
+                isDarkMode ? "text-purple-400" : "text-purple-600"
               }`}
             >
-              Download CV
-            </button>
+              👋 Hey, I'm Mohd Arshad
+            </span>
+          </div>
+
+          {/* Main content */}
+          <div className="flex items-start justify-between gap-8">
+            {/* Text content */}
+            <div className="flex-1">
+              <h2
+                className={`text-lg font-semibold mb-4 ${
+                  isDarkMode ? "text-gray-200" : "text-gray-800"
+                }`}
+              >
+                Having Experience as a{" "}
+                <span
+                  className={`text-2xl ${
+                    isDarkMode ? "text-white" : "text-black"
+                  }`}
+                >
+                  PythonDeveloper
+                </span>
+              </h2>
+              <p
+                className={`text-lg mb-8 ${
+                  isDarkMode ? "text-gray-400" : "text-gray-600"
+                }`}
+              >
+                allows me to navigate various aspects of
+                <br />
+                software development. "I bring a <br />
+                comprehensive approach to building <br />
+                scalable and efficient systems" refers to the
+                <br /> diverse skill set implied by the listed
+                <br /> designations.
+              </p>
+
+              {/* Buttons */}
+              <div className="flex gap-4">
+                <button className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">
+                  Schedule Call
+                </button>
+                <button
+                  className={`font-medium py-3 px-6 rounded-lg transition-colors ${
+                    isDarkMode
+                      ? "border border-gray-600 text-white hover:bg-gray-800"
+                      : "border border-gray-300 text-gray-800 hover:bg-gray-100"
+                  }`}
+                >
+                  Download CV
+                </button>
+              </div>
+            </div>
+
+            {/* Profile image with SVG blob */}
+            <div className="w-60 h-60 flex-shrink-0">
+              <svg
+                className="w-full h-full"
+                viewBox="0 0 200 187"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                <mask id="mask0">
+                  <path
+                    fill="white"
+                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
+        165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 
+        21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 
+        10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 
+        10.857 190.312 36.4879Z"
+                  />
+                </mask>
+                <g mask="url(#mask0)">
+                  <path
+                    fill="#8B5CF6"
+                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
+        165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 
+        21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 
+        10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 
+        10.857 190.312 36.4879Z"
+                  />
+                  <image
+                    className="home__blob-img"
+                    xlinkHref={profile}
+                    x="0"
+                    y="0"
+                    width="200"
+                    height="200"
+                    preserveAspectRatio="xMidYMid slice"
+                  />
+                </g>
+              </svg>
+            </div>
           </div>
         </div>
-      </main>
+      </section>
+
       <div className=" p-8 flex items-center justify-center">
         <div className="relative flex items-end space-x-4">
           <img
@@ -500,9 +557,9 @@ const HomePage: React.FC = () => {
             powerhouse backend development.
           </p>
         </div>
-        <DevelopmentServicesCard/>
+        <DevelopmentServicesCard />
       </div>
-      <WallOfTestimonial/>
+      <WallOfTestimonial />
     </div>
   );
 };
