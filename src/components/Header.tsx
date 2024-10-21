@@ -37,7 +37,7 @@ const Header = () => {
               Home
             </a>
             <a
-              href="#"
+              href="dashboard"
               className="hover:text-amber-500 transition-colors duration-200"
             >
               Solutions
