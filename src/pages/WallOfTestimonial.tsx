@@ -1,5 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "../components/constants/ThemeContext";
+import pho1 from "../assets/backend.svg";
+import pho2 from "../assets/cloud.svg";
+import pho3 from "../assets/devices.svg";
+import pho4 from "../assets/dj.jpg";
 
 interface Testimonial {
   name: string;
@@ -18,7 +22,7 @@ const TestimonialCard: React.FC<Testimonial> = ({
 
   return (
     <div
-      className={`rounded-2xl p-6 h-full transition-all duration-300 ${
+      className={`rounded-2xl p-6 min-w-[300px] max-w-[300px] mx-4 transition-all duration-300 ${
         isDarkMode ? "bg-gray-800" : "bg-white"
       } hover:shadow-lg`}
     >
@@ -58,41 +62,62 @@ const TestimonialCard: React.FC<Testimonial> = ({
 
 const WallOfTestimonial = () => {
   const { isDarkMode } = useContext(ThemeContext);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const testimonials: Testimonial[] = [
     {
       name: "Shailley Agarwal",
       role: "SAP - MDM | MDG | VENPRO - ABAP",
       content: `Arshad has excellence in whatever he does on the day. He is prompt, disciplined, and highly efficient. He can juggle multiple tasks at a same time and yes, he is an expert in his domain. I'm really looking for a change, collaborator, manager, or leader like him. I can't think of someone I would rate more highly.`,
-      avatar: "/api/placeholder/40/40",
+      avatar: pho1,
     },
     {
       name: "Shah Nawaz",
       role: "Developer II",
       content: `Arshad is a very talented developer having keen knowledge in Python programming. He has a great experience in playing with Data.`,
-      avatar: "/api/placeholder/40/40",
+      avatar: pho2,
     },
     {
       name: "Md. Umair Abdullah",
       role: "Sr. Full Stack Developer",
       content: `Collaborating with Arshad has been nothing short of transformative. His exceptional problem-solving skills and visionary approach to software development have driven our projects to unprecedented heights. Arshad's mentorship and eagerness to share his vast knowledge have fostered a culture of continuous learning and growth within our team.`,
-      avatar: "/api/placeholder/40/40",
+      avatar: pho3,
     },
     {
       name: "Ayushman Verma",
       role: "Web developer",
       content: `Arshad is an extraordinary developer whose technical prowess and innovative thinking set him apart. His ability to seamlessly integrate cutting-edge technologies and deliver flawless solutions is truly remarkable. Arshad's positive attitude and unwavering dedication to excellence inspire everyone around him, making him an invaluable asset to any team.`,
-      avatar: "/api/placeholder/40/40",
+      avatar: pho4,
     },
   ];
 
+  // Double the testimonials array to create a seamless loop
+  const extendedTestimonials = [...testimonials, ...testimonials];
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const scroll = () => {
+      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+        scrollContainer.scrollLeft = 0;
+      } else {
+        scrollContainer.scrollLeft += 1;
+      }
+    };
+
+    const intervalId = setInterval(scroll, 30);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <div
-      className={`py-16 px-4 transition-colors duration-300 ${
+      className={`py-16 transition-colors duration-300 overflow-hidden ${
         isDarkMode ? "bg-gray-900" : "bg-gray-100"
       }`}
     >
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2
             className={`inline-block px-6 py-2 text-xl font-semibold rounded-full ${
@@ -109,8 +134,8 @@ const WallOfTestimonial = () => {
             Real people. Real Results.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {testimonials.map((testimonial, index) => (
+        <div ref={scrollRef} className="flex overflow-x-hidden">
+          {extendedTestimonials.map((testimonial, index) => (
             <TestimonialCard key={index} {...testimonial} />
           ))}
         </div>
