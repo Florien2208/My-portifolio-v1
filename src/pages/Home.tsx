@@ -1,15 +1,21 @@
 import React, { useContext } from "react";
-import profile from "../assets/dj.jpg"
-import prof from "../assets/devices.svg"
-import skills from "../assets/skills.svg"
+import profile from "../assets/dj.jpg";
+import prof from "../assets/devices.svg";
+import skills from "../assets/skills.svg";
 import integrations from "../assets/integrations.svg";
-import dj from "../assets/dj.jpg"
+import dj from "../assets/dj.jpg";
 import { ThemeContext } from "../components/constants/ThemeContext";
-import { FaGithub, FaTwitter, FaLinkedin, FaGraduationCap } from "react-icons/fa";
+import {
+  FaGithub,
+  FaTwitter,
+  FaLinkedin,
+} from "react-icons/fa";
 import { categories } from "../constants/TechStackTypes";
 import DevelopmentServicesCard from "./DevelopmentServices";
 import WallOfTestimonial from "./WallOfTestimonial";
 import { Briefcase } from "lucide-react";
+import EducationSection from "./parts/EducationSection";
+import TypewriterJobTitle from "./parts/TypewriterJobTitle";
 
 const HomePage: React.FC = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -90,20 +96,7 @@ const HomePage: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
             {/* Text content */}
             <div className="flex-1 text-center md:text-left">
-              <h2
-                className={`text-lg font-semibold mb-4 ${
-                  isDarkMode ? "text-gray-200" : "text-gray-800"
-                }`}
-              >
-                Having Experience as a{" "}
-                <span
-                  className={`text-xl md:text-2xl ${
-                    isDarkMode ? "text-white" : "text-black"
-                  }`}
-                >
-                  PythonDeveloper
-                </span>
-              </h2>
+              <TypewriterJobTitle/>
               <p
                 className={`text-base md:text-lg mb-8 ${
                   isDarkMode ? "text-gray-400" : "text-gray-600"
@@ -233,7 +226,7 @@ const HomePage: React.FC = () => {
                     isDarkMode ? "text-white" : "text-gray-900"
                   }`}
                 >
-                  Mohd Arshad
+                  Mahoro Mpakanyi Florien
                 </h1>
                 <p
                   className={`${
@@ -415,145 +408,50 @@ const HomePage: React.FC = () => {
           </ul>
         </div>
       </section>
-      <section
-        className={`flex-grow flex items-center justify-center px-32 py-16 ${
-          isDarkMode ? " text-white" : " text-black"
-        }`}
-      >
-        <div className="max-w-2xl w-full relative">
-          <h1
-            className={`text-4xl font-bold mb-20 ${
-              isDarkMode ? "text-white" : "text-black"
-            }`}
-          >
-            Education
-          </h1>
-
-          <div className="space-y-16 relative">
-            <div className="flex gap-8 items-start relative">
-              <FaGraduationCap
-                className={`flex-shrink-0 ${
-                  isDarkMode ? "text-purple-600" : "text-purple-700"
-                }`}
-                size={40}
-              />
-              <div className="w-full">
-                <h3
-                  className={`text-2xl mb-2 ${
-                    isDarkMode ? "text-purple-500" : "text-purple-700"
-                  }`}
-                >
-                  Bachelor of Technology (CSE)
-                </h3>
-                <p
-                  className={`text-lg ${
-                    isDarkMode ? "text-gray-600" : "text-gray-700"
-                  }`}
-                >
-                  Integral University
-                </p>
-                <p
-                  className={`absolute right-0 top-0 ${
-                    isDarkMode ? "text-white" : "text-black"
-                  }`}
-                >
-                  July, 2016 - June, 2020
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-8 items-start relative">
-              <FaGraduationCap
-                className={`flex-shrink-0 ${
-                  isDarkMode ? "text-purple-600" : "text-purple-700"
-                }`}
-                size={40}
-              />
-              <div className="w-full">
-                <h3
-                  className={`text-2xl mb-2 ${
-                    isDarkMode ? "text-purple-500" : "text-purple-700"
-                  }`}
-                >
-                  Intermediate
-                </h3>
-                <p
-                  className={`text-lg ${
-                    isDarkMode ? "text-gray-600" : "text-gray-700"
-                  }`}
-                >
-                  St Mary's
-                </p>
-                <p
-                  className={`absolute right-0 top-0 ${
-                    isDarkMode ? "text-white" : "text-black"
-                  }`}
-                >
-                  July, 2015 - June, 2016
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-8 items-start relative">
-              <FaGraduationCap
-                className={`flex-shrink-0 ${
-                  isDarkMode ? "text-purple-600" : "text-purple-700"
-                }`}
-                size={40}
-              />
-              <div className="w-full">
-                <h3
-                  className={`text-2xl mb-2 ${
-                    isDarkMode ? "text-purple-500" : "text-purple-700"
-                  }`}
-                >
-                  Secondary School
-                </h3>
-                <p
-                  className={`text-lg ${
-                    isDarkMode ? "text-gray-600" : "text-gray-700"
-                  }`}
-                >
-                  St Mary's
-                </p>
-                <p
-                  className={`absolute right-0 top-0 ${
-                    isDarkMode ? "text-white" : "text-black"
-                  }`}
-                >
-                  July, 2013 - June, 2014
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <section>
+        <EducationSection />
       </section>
-      <section className="flex-grow flex items-center justify-center p-4">
+      <section className="flex-grow flex items-center justify-center p-2 sm:p-4">
         <div
-          className={`p-8 max-w-2xl w-full font-sans ${bgColor} ${textColor}`}
+          className={`p-4 sm:p-6 md:p-8 w-full max-w-2xl font-sans ${bgColor} ${textColor}`}
         >
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-3xl font-bold">Tech Stack Overview</h1>
+          {/* Header */}
+          <div className="flex justify-between items-center mb-4 sm:mb-6">
+            <h1 className="text-2xl sm:text-3xl font-bold">
+              Tech Stack Overview
+            </h1>
           </div>
-          <div className="grid grid-cols-4 gap-4 mb-6">
+
+          {/* Category Headers */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 mb-4 sm:mb-6">
             {categories.slice(0, 4).map((cat, index) => (
               <div
                 key={index}
-                className={`${headerBgColor} rounded-lg p-3 text-center`}
+                className={`${headerBgColor} rounded-lg p-2 sm:p-3 text-center`}
               >
-                <h2 className="text-xl font-bold">{cat.title}</h2>
+                <h2 className="text-lg sm:text-xl font-bold truncate">
+                  {cat.title}
+                </h2>
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-4 gap-4">
+
+          {/* Category Cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
             {categories.map((category, index) => (
-              <div key={index} className={`${cardBgColor} rounded-lg p-4`}>
-                <h3 className="text-lg font-semibold mb-2">
+              <div
+                key={index}
+                className={`${cardBgColor} rounded-lg p-3 sm:p-4`}
+              >
+                <h3 className="text-base sm:text-lg font-semibold mb-2 truncate">
                   {category.subTitle}
                 </h3>
                 <ul className="list-disc list-inside">
                   {category.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="text-sm">
+                    <li
+                      key={itemIndex}
+                      className="text-xs sm:text-sm break-words"
+                    >
                       {item}
                     </li>
                   ))}
