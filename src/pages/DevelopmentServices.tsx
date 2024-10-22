@@ -32,31 +32,31 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 const DevelopmentServices = () => {
   const services = [
     {
-      imgSrc: frontend, // Replace with actual image path
+      imgSrc: frontend,
       title: "Frontend Development",
       description: "Beautiful and responsive user interfaces",
       bgColor: "bg-sky-200",
     },
     {
-      imgSrc: mobile, // Replace with actual image path
+      imgSrc: mobile,
       title: "App Development",
       description: "Beautiful and responsive user interfaces",
       bgColor: "bg-green-200",
     },
     {
-      imgSrc: fullstack, // Replace with actual image path
+      imgSrc: fullstack,
       title: "Full Stack Development",
       description: "Frontend + Backend",
       bgColor: "bg-orange-200",
     },
     {
-      imgSrc: backend, // Replace with actual image path
+      imgSrc: backend,
       title: "Backend Development",
       description: "Scalable and complex backend systems",
       bgColor: "bg-blue-200",
     },
     {
-    imgSrc: cloud,
+      imgSrc: cloud,
       title: "Cloud Services",
       description: "Scalable and Cutting-Edge Cloud Solutions",
       bgColor: "bg-cyan-200",
@@ -65,7 +65,7 @@ const DevelopmentServices = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {services.map((service, index) => (
           <ServiceCard
             key={index}

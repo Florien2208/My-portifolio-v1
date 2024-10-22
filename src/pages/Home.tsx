@@ -415,97 +415,116 @@ const HomePage: React.FC = () => {
           </ul>
         </div>
       </section>
-      <section className="flex-grow flex items-center justify-center p-4">
-        <div className="max-w-2xl w-full mt-12">
-          <div
-            className={`rounded-lg px-6 justify-self-center py-2 mb-10 ${
-              isDarkMode ? "bg-gray-800" : "bg-white"
+      <section
+        className={`flex-grow flex items-center justify-center px-32 py-16 ${
+          isDarkMode ? " text-white" : " text-black"
+        }`}
+      >
+        <div className="max-w-2xl w-full relative">
+          <h1
+            className={`text-4xl font-bold mb-20 ${
+              isDarkMode ? "text-white" : "text-black"
             }`}
           >
-            <span className="text-purple-600 font-bold text-2xl">
-              Education
-            </span>
-          </div>
+            Education
+          </h1>
 
-          <div className="mb-8">
-            <div className="flex items-center mb-2">
-              <FaGraduationCap className="text-purple-500 mr-2" size={30} />
-              <h3
-                className={`text-xl font-semibold ${
-                  isDarkMode ? "text-purple-400" : "text-purple-700"
+          <div className="space-y-16 relative">
+            <div className="flex gap-8 items-start relative">
+              <FaGraduationCap
+                className={`flex-shrink-0 ${
+                  isDarkMode ? "text-purple-600" : "text-purple-700"
                 }`}
-              >
-                Bachelor of Technology (CSE)
-              </h3>
+                size={40}
+              />
+              <div className="w-full">
+                <h3
+                  className={`text-2xl mb-2 ${
+                    isDarkMode ? "text-purple-500" : "text-purple-700"
+                  }`}
+                >
+                  Bachelor of Technology (CSE)
+                </h3>
+                <p
+                  className={`text-lg ${
+                    isDarkMode ? "text-gray-600" : "text-gray-700"
+                  }`}
+                >
+                  Integral University
+                </p>
+                <p
+                  className={`absolute right-0 top-0 ${
+                    isDarkMode ? "text-white" : "text-black"
+                  }`}
+                >
+                  July, 2016 - June, 2020
+                </p>
+              </div>
             </div>
-            <p
-              className={`text-lg font-medium ${
-                isDarkMode ? "text-gray-300" : "text-gray-600"
-              }`}
-            >
-              Integral University
-            </p>
-            <p
-              className={`text-sm ${
-                isDarkMode ? "text-gray-400" : "text-gray-600"
-              } mb-2`}
-            >
-              July, 2016 - June, 2020
-            </p>
-          </div>
 
-          <div className="mb-8">
-            <div className="flex items-center mb-2">
-              <FaGraduationCap className="text-purple-500 mr-2" size={30} />
-              <h3
-                className={`text-xl font-semibold ${
-                  isDarkMode ? "text-purple-400" : "text-purple-700"
+            <div className="flex gap-8 items-start relative">
+              <FaGraduationCap
+                className={`flex-shrink-0 ${
+                  isDarkMode ? "text-purple-600" : "text-purple-700"
                 }`}
-              >
-                Intermediate
-              </h3>
+                size={40}
+              />
+              <div className="w-full">
+                <h3
+                  className={`text-2xl mb-2 ${
+                    isDarkMode ? "text-purple-500" : "text-purple-700"
+                  }`}
+                >
+                  Intermediate
+                </h3>
+                <p
+                  className={`text-lg ${
+                    isDarkMode ? "text-gray-600" : "text-gray-700"
+                  }`}
+                >
+                  St Mary's
+                </p>
+                <p
+                  className={`absolute right-0 top-0 ${
+                    isDarkMode ? "text-white" : "text-black"
+                  }`}
+                >
+                  July, 2015 - June, 2016
+                </p>
+              </div>
             </div>
-            <p
-              className={`text-lg font-medium ${
-                isDarkMode ? "text-gray-300" : "text-gray-600"
-              }`}
-            >
-              St Mary's
-            </p>
-            <p
-              className={`text-sm ${
-                isDarkMode ? "text-gray-400" : "text-gray-600"
-              } mb-2`}
-            >
-              July, 2015 - June, 2016
-            </p>
-          </div>
 
-          <div>
-            <div className="flex items-center mb-2">
-              <FaGraduationCap className="text-purple-500 mr-2" size={30} />
-              <h3
-                className={`text-xl font-semibold ${
-                  isDarkMode ? "text-purple-400" : "text-purple-700"
+            <div className="flex gap-8 items-start relative">
+              <FaGraduationCap
+                className={`flex-shrink-0 ${
+                  isDarkMode ? "text-purple-600" : "text-purple-700"
                 }`}
-              >
-                Secondary School
-              </h3>
+                size={40}
+              />
+              <div className="w-full">
+                <h3
+                  className={`text-2xl mb-2 ${
+                    isDarkMode ? "text-purple-500" : "text-purple-700"
+                  }`}
+                >
+                  Secondary School
+                </h3>
+                <p
+                  className={`text-lg ${
+                    isDarkMode ? "text-gray-600" : "text-gray-700"
+                  }`}
+                >
+                  St Mary's
+                </p>
+                <p
+                  className={`absolute right-0 top-0 ${
+                    isDarkMode ? "text-white" : "text-black"
+                  }`}
+                >
+                  July, 2013 - June, 2014
+                </p>
+              </div>
             </div>
-            <p
-              className={`text-lg font-medium ${
-                isDarkMode ? "text-gray-300" : "text-gray-600"
-              }`}
-            >
-              St Mary's
-            </p>
-            <p
-              className={`text-sm ${
-                isDarkMode ? "text-gray-400" : "text-gray-600"
-              } mb-2`}
-            >
-              July, 2013 - June, 2014
-            </p>
           </div>
         </div>
       </section>
@@ -544,9 +563,9 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-      <section className="flex-grow flex items-center justify-center p-4">
+      <section className="flex-grow  flex items-center justify-center p-4">
         <div
-          className={`flex flex-col max-w-2xl w-full items-center justify-center min-h-screen ${
+          className={`flex flex-col max-w-2xl w-full items-center justify-center min-h-80 ${
             isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
           }`}
         >
@@ -583,7 +602,7 @@ const HomePage: React.FC = () => {
         </div>
       </section>
       <section className=" flex items-center justify-center p-4">
-        <div className=" p-8 flex flex-grow bg-blue-500 items-center justify-center">
+        <div className=" p-8 flex flex-grow max-w-2xl w-full items-center justify-center">
           <div className="relative flex items-end space-x-4">
             <img
               src={skills}
@@ -594,7 +613,7 @@ const HomePage: React.FC = () => {
         </div>
       </section>
       <div
-        className={`flex flex-col items-center justify-center min-h-screen ${
+        className={`flex flex-col items-center justify-center min-h-60 ${
           isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
         }`}
       >
@@ -615,8 +634,8 @@ const HomePage: React.FC = () => {
           </p>
         </div>
       </div>
-      <div className=" p-8 flex items-center justify-center">
-        <div className="relative flex items-end space-x-4">
+      <div className=" p-8 flex  items-center justify-center">
+        <div className="relative max-w-2xl w-full flex items-end space-x-4">
           <img
             src={integrations}
             alt="Web development tools"
@@ -624,12 +643,12 @@ const HomePage: React.FC = () => {
           />
         </div>
       </div>
-      <div
+      <section
         className={`flex flex-col items-center justify-center min-h-screen ${
           isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
         }`}
       >
-        <div className="text-center">
+        <div className="text-center max-w-2xl w-full">
           <h2
             className={`text-4xl font-bold mb-8 ${
               isDarkMode ? "text-purple-400" : "text-purple-600"
@@ -646,10 +665,14 @@ const HomePage: React.FC = () => {
             ranging from full-stack wizardry to mesmerizing frontend design and
             powerhouse backend development.
           </p>
+          <DevelopmentServicesCard />
         </div>
-        <DevelopmentServicesCard />
-      </div>
-      <WallOfTestimonial />
+      </section>
+      <section className=" flex items-center justify-center ">
+        <div className="max-w-2xl w-full">
+          <WallOfTestimonial />
+        </div>
+      </section>
     </div>
   );
 };
