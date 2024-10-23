@@ -2,18 +2,16 @@ import React, { useContext } from "react";
 import { User, Moon, Sun, Search, Bell, Settings } from "lucide-react";
 import { ThemeContext } from "../../components/constants/ThemeContext";
 
-
 const Navbar: React.FC = () => {
   const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
 
   return (
     <div
-      className={`flex justify-between items-center mb-8 ${
-        isDarkMode ? "" : "bg-white"
-      }`}
+      className={`fixed top-0 right-0 lg:left-[240px] left-0 z-10 h-16 flex justify-between items-center p-4 lg:p-6 ${
+        isDarkMode ? "bg-[#0b1437]" : "bg-white"
+      } shadow-sm`}
     >
-      <div>
-        
+      <div className="ml-12 lg:ml-0">
         <h1
           className={`${
             isDarkMode ? "text-white" : "text-gray-900"
@@ -22,8 +20,8 @@ const Navbar: React.FC = () => {
           Dashboard
         </h1>
       </div>
-      <div className="flex items-center gap-4">
-        <div className="relative">
+      <div className="flex items-center gap-2 lg:gap-4">
+        <div className="relative hidden lg:block">
           <input
             type="text"
             placeholder="Type here..."
@@ -44,7 +42,7 @@ const Navbar: React.FC = () => {
         <button
           className={`${
             isDarkMode ? "text-[#707eae]" : "text-gray-600"
-          } hover:text-blue-500 transition-colors`}
+          } hover:text-blue-500 transition-colors hidden sm:block`}
         >
           <User size={20} />
         </button>
@@ -52,7 +50,7 @@ const Navbar: React.FC = () => {
         <button
           className={`${
             isDarkMode ? "text-[#707eae]" : "text-gray-600"
-          } hover:text-blue-500 transition-colors`}
+          } hover:text-blue-500 transition-colors hidden sm:block`}
         >
           <Bell size={20} />
         </button>
@@ -60,7 +58,7 @@ const Navbar: React.FC = () => {
         <button
           className={`${
             isDarkMode ? "text-[#707eae]" : "text-gray-600"
-          } hover:text-blue-500 transition-colors`}
+          } hover:text-blue-500 transition-colors hidden sm:block`}
         >
           <Settings size={20} />
         </button>
