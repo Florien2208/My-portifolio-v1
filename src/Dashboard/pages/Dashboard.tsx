@@ -46,7 +46,7 @@ const Dashboard: React.FC = () => {
   return (
     <>
       {/* Stats Row */}
-      <div className="grid grid-cols-4 gap-6 mb-6">
+      <div className="grid grid-cols-4 gap-6 mb-6 mt-16">
         {[
           {
             title: "Today's Money",
