@@ -16,6 +16,7 @@ import WallOfTestimonial from "./WallOfTestimonial";
 import { Briefcase } from "lucide-react";
 import EducationSection from "./parts/EducationSection";
 import TypewriterJobTitle from "./parts/TypewriterJobTitle";
+import ScheduleCall from "./parts/ScheduleCall";
 
 const HomePage: React.FC = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -96,7 +97,7 @@ const HomePage: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
             {/* Text content */}
             <div className="flex-1 text-center md:text-left">
-              <TypewriterJobTitle/>
+              <TypewriterJobTitle />
               <p
                 className={`text-base md:text-lg mb-8 ${
                   isDarkMode ? "text-gray-400" : "text-gray-600"
@@ -110,9 +111,7 @@ const HomePage: React.FC = () => {
 
               {/* Buttons */}
               <div className="flex flex-row sm:flex-row gap-4 justify-center md:justify-start">
-                <button className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 md:py-3 px-4 md:px-6 rounded-lg transition-colors w-full sm:w-auto">
-                  Schedule Call
-                </button>
+                <ScheduleCall isDarkMode={isDarkMode} />
                 <button
                   className={`font-medium py-2 md:py-3 px-4 md:px-6 rounded-lg transition-colors w-full sm:w-auto ${
                     isDarkMode
