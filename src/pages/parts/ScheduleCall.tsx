@@ -67,7 +67,7 @@ const ScheduleCall: React.FC<ScheduleCallProps> = () => {
             ref={widgetRef}
             className="bg-white rounded-lg shadow-lg p-4 max-w-3xl w-full max-h-[95%] items-center"
           >
-            <InlineWidget  url="https://calendly.com/mahorompakanyiflorien" />
+            <InlineWidget url="https://calendly.com/mahorompakanyiflorien/30min" />
             {/* Optional: Button to close the widget */}
             <button
               onClick={() => setShowWidget(false)}
