@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { FaGraduationCap } from "react-icons/fa";
 import {
   LayoutDashboard,
   Table2,
   CreditCard,
   Languages,
   User,
-  LogIn,
+  SignalHigh,
 } from "lucide-react";
 import { ThemeContext } from "../../components/constants/ThemeContext";
+import { MdContactEmergency } from "react-icons/md";
 
 const Sidebar: React.FC = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -57,7 +59,7 @@ const Sidebar: React.FC = () => {
             },
             {
               path: "/rtl",
-              icon: <Languages size={18} />,
+              icon: <FaGraduationCap size={18} />,
               label: "My Education",
             },
             {
@@ -95,8 +97,16 @@ const Sidebar: React.FC = () => {
 
           {[
             { path: "/profile", icon: <User size={18} />, label: "Profile" },
-            { path: "/signin", icon: <LogIn size={18} />, label: "My Wallet" },
-            { path: "/signin", icon: <LogIn size={18} />, label: "Contact us" },
+            {
+              path: "/signin",
+              icon: <SignalHigh size={18} />,
+              label: "My Wallet",
+            },
+            {
+              path: "/signin",
+              icon: <MdContactEmergency size={18} />,
+              label: "Contact us",
+            },
           ].map((item) => (
             <Link
               key={item.path}

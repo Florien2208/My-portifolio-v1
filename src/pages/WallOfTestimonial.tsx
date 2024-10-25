@@ -20,6 +20,12 @@ const TestimonialCard: React.FC<Testimonial> = ({
 }) => {
   const { isDarkMode } = useContext(ThemeContext);
 
+// const response = await axios.get("/api/v1/irrigation", {
+//   headers: {
+//     Authorization: `Bearer ${accessToken}`,
+//   },
+// });
+
   return (
     <div
       className={`rounded-2xl p-6 min-w-[300px] max-w-[300px] mx-4 transition-all duration-300 ${
