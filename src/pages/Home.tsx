@@ -5,11 +5,7 @@ import skills from "../assets/skills.svg";
 import integrations from "../assets/integrations.svg";
 import dj from "../assets/dj.jpg";
 import { ThemeContext } from "../components/constants/ThemeContext";
-import {
-  FaGithub,
-  FaTwitter,
-  FaLinkedin,
-} from "react-icons/fa";
+import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 import { categories } from "../constants/TechStackTypes";
 import DevelopmentServicesCard from "./DevelopmentServices";
 import WallOfTestimonial from "./WallOfTestimonial";
@@ -17,6 +13,7 @@ import { Briefcase } from "lucide-react";
 import EducationSection from "./parts/EducationSection";
 import TypewriterJobTitle from "./parts/TypewriterJobTitle";
 import ScheduleCall from "./parts/ScheduleCall";
+import ContactSection from "./parts/ContactSection";
 
 const HomePage: React.FC = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -568,6 +565,11 @@ const HomePage: React.FC = () => {
       <section className=" flex items-center justify-center ">
         <div className="max-w-2xl w-full">
           <WallOfTestimonial />
+        </div>
+      </section>
+      <section className=" flex items-center justify-center ">
+        <div className="max-w-2xl w-full">
+          <ContactSection />
         </div>
       </section>
     </div>
