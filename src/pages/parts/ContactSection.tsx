@@ -107,7 +107,7 @@ const ContactSection: React.FC = () => {
 
               <button
                 type="submit"
-                className="px-6 py-3 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                className="px-6 py-3 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
               >
                 Send Message
               </button>

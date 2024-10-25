@@ -14,6 +14,7 @@ import EducationSection from "./parts/EducationSection";
 import TypewriterJobTitle from "./parts/TypewriterJobTitle";
 import ScheduleCall from "./parts/ScheduleCall";
 import ContactSection from "./parts/ContactSection";
+import Stats from "./parts/StatsSection";
 
 const HomePage: React.FC = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -233,6 +234,7 @@ const HomePage: React.FC = () => {
                 </p>
               </div>
             </div>
+
             <div className="flex space-x-4 ml-8 mt-6">
               <FaGithub
                 className={`${
@@ -257,7 +259,7 @@ const HomePage: React.FC = () => {
               />
             </div>
           </div>
-
+          <Stats />
           <p
             className={`text-lg mb-8 ${
               isDarkMode ? "text-gray-300" : "text-gray-700"
