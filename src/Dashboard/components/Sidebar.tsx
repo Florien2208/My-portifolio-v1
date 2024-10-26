@@ -48,7 +48,7 @@ const Sidebar: React.FC = () => {
               label: "Dashboard",
             },
             {
-              path: "/tables",
+              path: "Experiences",
               icon: <Table2 size={18} />,
               label: "My Experience",
             },
