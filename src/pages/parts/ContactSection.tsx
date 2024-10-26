@@ -36,7 +36,7 @@ const ContactSection: React.FC = () => {
 
   return (
     <div
-      className={`w-full min-h-screen ${
+      className={`w-full ${
         isDarkMode ? "bg-gray-900" : "bg-gray-100"
       }`}
     >
