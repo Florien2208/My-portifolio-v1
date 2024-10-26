@@ -15,6 +15,9 @@ import TypewriterJobTitle from "./parts/TypewriterJobTitle";
 import ScheduleCall from "./parts/ScheduleCall";
 import ContactSection from "./parts/ContactSection";
 import Stats from "./parts/StatsSection";
+import { ArrowRight } from "lucide-react";
+
+
 
 const HomePage: React.FC = () => {
   const { isDarkMode } = useContext(ThemeContext);
@@ -562,6 +565,95 @@ const HomePage: React.FC = () => {
             powerhouse backend development.
           </p>
           <DevelopmentServicesCard />
+        </div>
+      </section>
+      <section
+        className={` py-16 ${isDarkMode ? "bg-gray-900" : "bg-gray-100"}`}
+      >
+        <div className="max-w-2xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <p
+              className={`text-lg mb-2 ${
+                isDarkMode ? "text-gray-300" : "text-gray-600"
+              }`}
+            >
+              My Services
+            </p>
+            <h2 className="text-4xl font-semibold bg-gradient-to-r from-purple-600 to-orange-500 bg-clip-text text-transparent">
+              What I Offer
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div
+              className={`rounded-lg p-8 flex flex-col justify-between min-h-[200px] transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border ${
+                isDarkMode
+                  ? "bg-gray-800 border-gray-700"
+                  : "bg-white border-gray-300"
+              }`}
+            >
+              <h3
+                className={`text-2xl font-medium mb-4 ${
+                  isDarkMode ? "text-white" : "text-gray-800"
+                }`}
+              >
+                Front-End Developer
+              </h3>
+              <a
+                href="/frontend"
+                className="text-purple-600 flex items-center gap-2 group hover:text-purple-700 transition duration-200"
+              >
+                See more
+                <ArrowRight className="w-4 h-4 transform transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+
+            <div
+              className={`rounded-lg p-8 flex flex-col justify-between min-h-[200px] transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border ${
+                isDarkMode
+                  ? "bg-gray-800 border-gray-700"
+                  : "bg-white border-gray-300"
+              }`}
+            >
+              <h3
+                className={`text-2xl font-medium mb-4 ${
+                  isDarkMode ? "text-white" : "text-gray-800"
+                }`}
+              >
+                Chatbot Services
+              </h3>
+              <a
+                href="/chatbot"
+                className="text-purple-600 flex items-center gap-2 group hover:text-purple-700 transition duration-200"
+              >
+                See more
+                <ArrowRight className="w-4 h-4 transform transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+
+            <div
+              className={`rounded-lg p-8 flex flex-col justify-between min-h-[200px] transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border ${
+                isDarkMode
+                  ? "bg-gray-800 border-gray-700"
+                  : "bg-white border-gray-300"
+              }`}
+            >
+              <h3
+                className={`text-2xl font-medium mb-4 ${
+                  isDarkMode ? "text-white" : "text-gray-800"
+                }`}
+              >
+                SEO and SEM
+              </h3>
+              <a
+                href="/seo"
+                className="text-purple-600 flex items-center gap-2 group hover:text-purple-700 transition duration-200"
+              >
+                See more
+                <ArrowRight className="w-4 h-4 transform transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+          </div>
         </div>
       </section>
       <section className=" flex items-center justify-center ">
