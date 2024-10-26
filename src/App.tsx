@@ -5,6 +5,7 @@ import ExperienceSection from "./Dashboard/pages/experience/ExperienceSection";
 import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Reference from "./Dashboard/pages/reference/Reference";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -29,6 +30,10 @@ export default function App() {
         {
           path: "Experiences",
           element:<ExperienceSection />,
+        },
+        {
+          path: "References",
+          element:<Reference />,
         },
       ],
     },

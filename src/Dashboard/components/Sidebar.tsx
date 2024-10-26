@@ -63,7 +63,7 @@ const Sidebar: React.FC = () => {
               label: "My Education",
             },
             {
-              path: "/rt",
+              path: "References",
               icon: <Languages size={18} />,
               label: "My References",
             },
