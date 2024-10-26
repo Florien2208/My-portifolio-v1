@@ -63,7 +63,7 @@ const Sidebar: React.FC = () => {
               label: "My Education",
             },
             {
-              path: "/rtl",
+              path: "/rt",
               icon: <Languages size={18} />,
               label: "My References",
             },
@@ -103,7 +103,7 @@ const Sidebar: React.FC = () => {
               label: "My Wallet",
             },
             {
-              path: "/signin",
+              path: "/signi",
               icon: <MdContactEmergency size={18} />,
               label: "Contact us",
             },
