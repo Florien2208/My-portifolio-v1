@@ -35,11 +35,7 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <div
-      className={`w-full ${
-        isDarkMode ? "bg-gray-900" : "bg-gray-100"
-      }`}
-    >
+    <div className={`w-full ${isDarkMode ? "bg-gray-900" : "bg-gray-100"}`}>
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="flex flex-col md:flex-row gap-8">
           {/* Contact Form Section */}
@@ -127,13 +123,13 @@ const ContactSection: React.FC = () => {
 
             <div className="space-y-4">
               <a
-                href="mailto:aashirkhandev@gmail.com"
+                href="mailto:mahorompakanyiflorien@gmail.com"
                 className={`flex items-center gap-3 ${
                   isDarkMode ? "text-gray-300" : "text-gray-600"
                 } hover:text-orange-500 transition duration-200`}
               >
                 <Mail className="w-5 h-5" />
-                <span>aashirkhandev@gmail.com</span>
+                <span>mahorompakanyiflorien@gmail.com</span>
               </a>
 
               <a
@@ -149,7 +145,7 @@ const ContactSection: React.FC = () => {
               </a>
 
               <a
-                href="https://github.com/aashir1"
+                href="https://github.com/Florien2208"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex items-center gap-3 ${
@@ -157,7 +153,7 @@ const ContactSection: React.FC = () => {
                 } hover:text-orange-500 transition duration-200`}
               >
                 <Github className="w-5 h-5" />
-                <span>aashir1</span>
+                <span>florien2208</span>
               </a>
             </div>
           </div>
