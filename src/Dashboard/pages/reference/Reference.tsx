@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../../components/constants/ThemeContext";
+import { Pencil, Trash2, Plus } from "lucide-react";
 
 // Types
 interface Testimonial {
@@ -12,18 +13,48 @@ interface Testimonial {
 
 interface TestimonialCardProps {
   testimonial: Testimonial;
+  onEdit: (testimonial: Testimonial) => void;
+  onDelete: (id: number) => void;
 }
 
 // Card Component
-const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
+const TestimonialCard: React.FC<TestimonialCardProps> = ({
+  testimonial,
+  onEdit,
+  onDelete,
+}) => {
   const { isDarkMode } = useContext(ThemeContext);
 
   return (
     <div
-      className={`rounded-2xl p-6 min-w-[300px] max-w-[300px] mx-4 transition-all duration-300 ${
+      className={`rounded-2xl p-6 min-w-[300px] max-w-[300px] mx-4 relative transition-all duration-300 ${
         isDarkMode ? "bg-gray-800" : "bg-white"
       } hover:shadow-lg`}
     >
+      {/* Action Buttons */}
+      <div className="absolute top-4 right-4 flex gap-2">
+        <button
+          onClick={() => onEdit(testimonial)}
+          className={`p-2 rounded-full hover:bg-opacity-90 ${
+            isDarkMode
+              ? "bg-gray-700 text-gray-300"
+              : "bg-gray-100 text-gray-600"
+          }`}
+        >
+          <Pencil size={16} />
+        </button>
+        <button
+          onClick={() => onDelete(testimonial.id)}
+          className={`p-2 rounded-full hover:bg-opacity-90 ${
+            isDarkMode
+              ? "bg-gray-700 text-gray-300"
+              : "bg-gray-100 text-gray-600"
+          }`}
+        >
+          <Trash2 size={16} />
+        </button>
+      </div>
+
       <p
         className={`mb-6 line-clamp-4 ${
           isDarkMode ? "text-gray-300" : "text-gray-600"
@@ -75,7 +106,6 @@ const Reference = () => {
           throw new Error("Failed to fetch testimonials");
         }
         const data = await response.json();
-        console.log("response", data.data);
         setTestimonials(data.data);
         setError(null);
       } catch (err) {
@@ -87,6 +117,21 @@ const Reference = () => {
 
     fetchTestimonials();
   }, []);
+
+  const handleEdit = (testimonial: Testimonial) => {
+    // Implement edit functionality
+    console.log("Edit testimonial:", testimonial);
+  };
+
+  const handleDelete = async (id: number) => {
+    // Implement delete functionality
+    console.log("Delete testimonial:", id);
+  };
+
+  const handleAdd = () => {
+    // Implement add functionality
+    console.log("Add new testimonial");
+  };
 
   if (isLoading) {
     return (
@@ -117,29 +162,45 @@ const Reference = () => {
   return (
     <div
       className={`py-16 transition-colors duration-300 overflow-hidden ${
-        isDarkMode ? "bg-gray-900" : "bg-gray-100"
+        isDarkMode ? "" : "bg-gray-100"
       }`}
     >
       <div className="container mx-auto">
-        <div className="text-center mb-12">
-          <h2
-            className={`inline-block px-6 py-2 text-xl font-semibold rounded-full ${
-              isDarkMode
-                ? "bg-purple-900/30 text-purple-400"
-                : "bg-purple-100 text-purple-800"
-            }`}
+        <div className="flex justify-between items-center mb-12">
+          <div className="text-center">
+            <h2
+              className={`inline-block px-6 py-2 text-xl font-semibold rounded-full ${
+                isDarkMode
+                  ? "bg-purple-900/30 text-purple-400"
+                  : "bg-purple-100 text-purple-800"
+              }`}
+            >
+              Wall of Love
+            </h2>
+            <p
+              className={`mt-4 ${
+                isDarkMode ? "text-gray-400" : "text-gray-600"
+              }`}
+            >
+              Real people. Real Results.
+            </p>
+          </div>
+          <button
+            onClick={handleAdd}
+            className="flex items-center gap-2 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors duration-200"
           >
-            Wall of Love
-          </h2>
-          <p
-            className={`mt-4 ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}
-          >
-            Real people. Real Results.
-          </p>
+            <Plus size={20} />
+            Add Reference
+          </button>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial) => (
-            <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+            <TestimonialCard
+              key={testimonial.id}
+              testimonial={testimonial}
+              onEdit={handleEdit}
+              onDelete={handleDelete}
+            />
           ))}
         </div>
       </div>
