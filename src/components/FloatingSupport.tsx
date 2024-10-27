@@ -9,8 +9,6 @@ import {
   Slack,
 } from "lucide-react";
 
-
-
 const FloatingSupport = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,6 +17,79 @@ const FloatingSupport = () => {
     setIsModalOpen(!isModalOpen);
     setIsExpanded(false);
   };
+
+  const handlePlatformConnect = (platform:string) => {
+    switch (platform) {
+      case "whatsapp":
+        // Replace with your WhatsApp number
+        window.open("https://wa.me/250787537524", "_blank");
+        break;
+      case "gmail":
+        // Replace with your email
+        window.location.href = "mailto:support@example.com";
+        break;
+      case "slack":
+        // Replace with your Slack workspace invite link
+        window.open(
+          "https://app.slack.com/client/T040UHAL7EX/C040E3MPSGP",
+          "_blank"
+        );
+        break;
+      case "phone":
+        // Replace with your phone number
+        window.location.href = "tel:+250787537524";
+        break;
+      case "live-chat":
+        // Implement your live chat initialization here
+        console.log("Starting live chat...");
+        break;
+      default:
+        break;
+    }
+  };
+
+  const contactOptions = [
+    {
+      platform: "whatsapp",
+      icon: MessageCircle,
+      label: "WHATSAPP CONTACT",
+      description: "Connect via WhatsApp",
+      color: "text-green-600",
+      bgColor: "bg-green-50 group-hover:bg-green-100",
+    },
+    {
+      platform: "gmail",
+      icon: Mail,
+      label: "G-MAIL",
+      description: "Send us an email",
+      color: "text-red-600",
+      bgColor: "bg-red-50 group-hover:bg-red-100",
+    },
+    {
+      platform: "slack",
+      icon: Slack,
+      label: "SLACK",
+      description: "Chat on Slack",
+      color: "text-purple-600",
+      bgColor: "bg-purple-50 group-hover:bg-purple-100",
+    },
+    {
+      platform: "phone",
+      icon: Phone,
+      label: "PHONE CONTACT",
+      description: "Call us directly",
+      color: "text-blue-600",
+      bgColor: "bg-blue-50 group-hover:bg-blue-100",
+    },
+    {
+      platform: "live-chat",
+      icon: MessageSquare,
+      label: "LIVE CHAT",
+      description: "Start a live chat",
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50 group-hover:bg-emerald-100",
+    },
+  ];
 
   return (
     <>
@@ -57,7 +128,6 @@ const FloatingSupport = () => {
               <span className="text-white font-medium whitespace-nowrap">
                 HIRE ME&nbsp;&nbsp;
               </span>
-              {/* <span>HIRE ME</span> */}
               <ExternalLink
                 size={20}
                 className="relative text-white top-[1px]"
@@ -81,40 +151,10 @@ const FloatingSupport = () => {
 
             {/* Contact options */}
             <div className="p-2">
-              {[
-                {
-                  icon: MessageCircle,
-                  label: "WHATSAPP CONTACT",
-                  color: "text-green-600",
-                  bgColor: "bg-green-50 group-hover:bg-green-100",
-                },
-                {
-                  icon: Mail,
-                  label: "G-MAIL",
-                  color: "text-red-600",
-                  bgColor: "bg-red-50 group-hover:bg-red-100",
-                },
-                {
-                  icon: Slack,
-                  label: "SLACK",
-                  color: "text-purple-600",
-                  bgColor: "bg-purple-50 group-hover:bg-purple-100",
-                },
-                {
-                  icon: Phone,
-                  label: "PHONE CONTACT",
-                  color: "text-blue-600",
-                  bgColor: "bg-blue-50 group-hover:bg-blue-100",
-                },
-                {
-                  icon: MessageSquare,
-                  label: "LIVE CHAT",
-                  color: "text-emerald-600",
-                  bgColor: "bg-emerald-50 group-hover:bg-emerald-100",
-                },
-              ].map((option, index) => (
+              {contactOptions.map((option) => (
                 <button
-                  key={index}
+                  key={option.platform}
+                  onClick={() => handlePlatformConnect(option.platform)}
                   className="w-full flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 active:bg-gray-100 transition-all duration-200 group"
                 >
                   <div
@@ -127,11 +167,7 @@ const FloatingSupport = () => {
                       {option.label}
                     </span>
                     <span className="text-xs text-gray-500 group-hover:text-gray-600">
-                      {index === 0 && "Connect via WhatsApp"}
-                      {index === 1 && "Send us an email"}
-                      {index === 2 && "Chat on Slack"}
-                      {index === 3 && "Call us directly"}
-                      {index === 4 && "Start a live chat"}
+                      {option.description}
                     </span>
                   </div>
                   <div className="ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">
