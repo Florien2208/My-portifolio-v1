@@ -1,23 +1,21 @@
-import React, { useContext, useRef } from "react";
-import pho1 from "../../../assets/backend.svg";
-import pho2 from "../../../assets/cloud.svg";
-import pho3 from "../../../assets/devices.svg";
-import pho4 from "../../../assets/dj.jpg";
+import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../../components/constants/ThemeContext";
 
+// Types
 interface Testimonial {
+  id: number;
   name: string;
-  role: string;
-  content: string;
-  avatar: string;
+  title: string;
+  description: string;
+  profile: string;
 }
 
-const TestimonialCard: React.FC<Testimonial> = ({
-  name,
-  role,
-  content,
-  avatar,
-}) => {
+interface TestimonialCardProps {
+  testimonial: Testimonial;
+}
+
+// Card Component
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
   const { isDarkMode } = useContext(ThemeContext);
 
   return (
@@ -31,12 +29,12 @@ const TestimonialCard: React.FC<Testimonial> = ({
           isDarkMode ? "text-gray-300" : "text-gray-600"
         }`}
       >
-        {content}
+        {testimonial.description}
       </p>
       <div className="flex items-center gap-3">
         <img
-          src={avatar}
-          alt={name}
+          src={testimonial.profile}
+          alt={testimonial.name}
           className="w-10 h-10 rounded-full object-cover"
         />
         <div>
@@ -45,14 +43,14 @@ const TestimonialCard: React.FC<Testimonial> = ({
               isDarkMode ? "text-white" : "text-gray-900"
             }`}
           >
-            {name}
+            {testimonial.name}
           </h4>
           <p
             className={`text-sm ${
               isDarkMode ? "text-gray-400" : "text-gray-500"
             }`}
           >
-            {role}
+            {testimonial.title}
           </p>
         </div>
       </div>
@@ -60,54 +58,61 @@ const TestimonialCard: React.FC<Testimonial> = ({
   );
 };
 
+// Main Component
 const Reference = () => {
   const { isDarkMode } = useContext(ThemeContext);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const testimonials: Testimonial[] = [
-    {
-      name: "Shailley Agarwal",
-      role: "SAP - MDM | MDG | VENPRO - ABAP",
-      content: `Arshad has excellence in whatever he does on the day. He is prompt, disciplined, and highly efficient. He can juggle multiple tasks at a same time and yes, he is an expert in his domain. I'm really looking for a change, collaborator, manager, or leader like him. I can't think of someone I would rate more highly.`,
-      avatar: pho1,
-    },
-    {
-      name: "Shah Nawaz",
-      role: "Developer II",
-      content: `Arshad is a very talented developer having keen knowledge in Python programming. He has a great experience in playing with Data.`,
-      avatar: pho2,
-    },
-    {
-      name: "Md. Umair Abdullah",
-      role: "Sr. Full Stack Developer",
-      content: `Collaborating with Arshad has been nothing short of transformative. His exceptional problem-solving skills and visionary approach to software development have driven our projects to unprecedented heights. Arshad's mentorship and eagerness to share his vast knowledge have fostered a culture of continuous learning and growth within our team.`,
-      avatar: pho3,
-    },
-    {
-      name: "Ayushman Verma",
-      role: "Web developer",
-      content: `Arshad is an extraordinary developer whose technical prowess and innovative thinking set him apart. His ability to seamlessly integrate cutting-edge technologies and deliver flawless solutions is truly remarkable. Arshad's positive attitude and unwavering dedication to excellence inspire everyone around him, making him an invaluable asset to any team.`,
-      avatar: pho4,
-    },
-    {
-      name: "Ayushman Verma",
-      role: "Web developer",
-      content: `Arshad is an extraordinary developer whose technical prowess and innovative thinking set him apart. His ability to seamlessly integrate cutting-edge technologies and deliver flawless solutions is truly remarkable. Arshad's positive attitude and unwavering dedication to excellence inspire everyone around him, making him an invaluable asset to any team.`,
-      avatar: pho4,
-    },
-    {
-      name: "Ayushman Verma",
-      role: "Web developer",
-      content: `Arshad is an extraordinary developer whose technical prowess and innovative thinking set him apart. His ability to seamlessly integrate cutting-edge technologies and deliver flawless solutions is truly remarkable. Arshad's positive attitude and unwavering dedication to excellence inspire everyone around him, making him an invaluable asset to any team.`,
-      avatar: pho4,
-    },
-    {
-      name: "Ayushman Verma",
-      role: "Web developer",
-      content: `Arshad is an extraordinary developer whose technical prowess and innovative thinking set him apart. His ability to seamlessly integrate cutting-edge technologies and deliver flawless solutions is truly remarkable. Arshad's positive attitude and unwavering dedication to excellence inspire everyone around him, making him an invaluable asset to any team.`,
-      avatar: pho4,
-    },
-  ];
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch("/api/references");
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch testimonials");
+        }
+        const data = await response.json();
+        console.log("response", data.data);
+        setTestimonials(data.data);
+        setError(null);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "An error occurred");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center min-h-[400px]">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div
+        className={`text-center p-8 ${
+          isDarkMode ? "text-red-400" : "text-red-600"
+        }`}
+      >
+        <p>Error: {error}</p>
+        <button
+          onClick={() => window.location.reload()}
+          className="mt-4 px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
+        >
+          Try Again
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -132,12 +137,9 @@ const Reference = () => {
             Real people. Real Results.
           </p>
         </div>
-        <div
-          ref={scrollRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {testimonials.map((testimonial, index) => (
-            <TestimonialCard key={index} {...testimonial} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.map((testimonial) => (
+            <TestimonialCard key={testimonial.id} testimonial={testimonial} />
           ))}
         </div>
       </div>
