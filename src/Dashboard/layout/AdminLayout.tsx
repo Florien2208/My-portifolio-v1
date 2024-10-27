@@ -42,7 +42,7 @@ const AdminLayout: React.FC = () => {
       {/* Main Content */}
       <div className="lg:ml-[240px] relative">
         <Navbar />
-        <div className="p-4 lg:p-6 mt-16">
+        <div className="p-4 lg:p-6 ">
           <Outlet />
         </div>
       </div>
