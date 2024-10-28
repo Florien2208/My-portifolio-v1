@@ -43,7 +43,7 @@ const Header = () => {
               Solutions
             </a>
             <a
-              href="#"
+              href="projects"
               className="hover:text-amber-500 transition-colors duration-200"
             >
               Projects

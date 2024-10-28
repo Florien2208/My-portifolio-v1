@@ -6,6 +6,7 @@ import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Reference from "./Dashboard/pages/reference/Reference";
+import ProjectsPage from "./pages/ProjectsPage";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -16,6 +17,10 @@ export default function App() {
         {
           path: "",
           element: <Home />,
+        },
+        {
+          path: "projects",
+          element: <ProjectsPage/>,
         },
       ],
     },
