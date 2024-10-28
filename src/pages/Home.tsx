@@ -19,6 +19,7 @@ import { ArrowRight } from "lucide-react";
 
 
 
+
 const HomePage: React.FC = () => {
   const { isDarkMode } = useContext(ThemeContext);
   const bgColor = isDarkMode ? "bg-purple-900" : "bg-purple-100";
@@ -239,27 +240,48 @@ const HomePage: React.FC = () => {
             </div>
 
             <div className="flex space-x-4 ml-8 mt-6">
-              <FaGithub
-                className={`${
-                  isDarkMode
-                    ? "text-gray-400 hover:text-white"
-                    : "text-gray-600 hover:text-gray-900"
-                } cursor-pointer`}
-              />
-              <FaTwitter
-                className={`${
-                  isDarkMode
-                    ? "text-gray-400 hover:text-white"
-                    : "text-gray-600 hover:text-gray-900"
-                } cursor-pointer`}
-              />
-              <FaLinkedin
-                className={`${
-                  isDarkMode
-                    ? "text-gray-400 hover:text-white"
-                    : "text-gray-600 hover:text-gray-900"
-                } cursor-pointer`}
-              />
+              <a
+                href="https://github.com/florien2208"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <FaGithub
+                  className={`${
+                    isDarkMode
+                      ? "text-gray-400 hover:text-white"
+                      : "text-gray-600 hover:text-gray-900"
+                  } cursor-pointer`}
+                />
+              </a>
+              <a
+                href="https://x.com/Florien40209395"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+              >
+                <FaTwitter
+                  className={`${
+                    isDarkMode
+                      ? "text-gray-400 hover:text-white"
+                      : "text-gray-600 hover:text-gray-900"
+                  } cursor-pointer`}
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/mahoro-florien/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin
+                  className={`${
+                    isDarkMode
+                      ? "text-gray-400 hover:text-white"
+                      : "text-gray-600 hover:text-gray-900"
+                  } cursor-pointer`}
+                />
+              </a>
             </div>
           </div>
           <Stats />
