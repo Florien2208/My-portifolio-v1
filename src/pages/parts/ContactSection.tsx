@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext, useState } from "react";
-import { Mail,  Github, X, Slack, Linkedin } from "lucide-react";
+import { Mail,  Github, X, Linkedin } from "lucide-react";
 import { ThemeContext } from "../../components/constants/ThemeContext";
 
 interface ContactFormData {
@@ -317,17 +317,7 @@ const ContactSection: React.FC = () => {
                 <Linkedin className="w-5 h-5" />
                 <span>mahoro-florien</span>
               </a>
-              <a
-                href="https://instagram.com/iaashirkhan"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex items-center gap-3 ${
-                  isDarkMode ? "text-gray-300" : "text-gray-600"
-                } hover:text-orange-500 transition duration-200`}
-              >
-                <Slack className="w-5 h-5" />
-                <span>@iaashirkhan</span>
-              </a>
+             
             </div>
           </div>
         </div>

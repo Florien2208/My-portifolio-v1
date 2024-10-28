@@ -597,7 +597,7 @@ const HomePage: React.FC = () => {
                   isDarkMode ? "text-white" : "text-gray-800"
                 }`}
               >
-                Front-End Developer
+                full stack Developer
               </h3>
               <a
                 href="/frontend"
@@ -620,7 +620,7 @@ const HomePage: React.FC = () => {
                   isDarkMode ? "text-white" : "text-gray-800"
                 }`}
               >
-                Chatbot Services
+                Ai developer
               </h3>
               <a
                 href="/chatbot"
@@ -643,7 +643,29 @@ const HomePage: React.FC = () => {
                   isDarkMode ? "text-white" : "text-gray-800"
                 }`}
               >
-                SEO and SEM
+                Software engineering
+              </h3>
+              <a
+                href="/seo"
+                className="text-purple-600 flex items-center gap-2 group hover:text-purple-700 transition duration-200"
+              >
+                See more
+                <ArrowRight className="w-4 h-4 transform transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+            <div
+              className={`rounded-lg p-8 flex flex-col justify-between min-h-[200px] transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border ${
+                isDarkMode
+                  ? "bg-gray-800 border-gray-700"
+                  : "bg-white border-gray-300"
+              }`}
+            >
+              <h3
+                className={`text-2xl font-medium mb-4 ${
+                  isDarkMode ? "text-white" : "text-gray-800"
+                }`}
+              >
+                Mobile developer
               </h3>
               <a
                 href="/seo"
