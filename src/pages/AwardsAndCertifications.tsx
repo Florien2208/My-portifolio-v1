@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Award, Trophy, Sun } from "lucide-react";
+import { ThemeContext } from "../components/constants/ThemeContext";
 
 interface Certification {
   title: string;
@@ -9,6 +10,8 @@ interface Certification {
 }
 
 const AwardsAndCertifications: React.FC = () => {
+  const { isDarkMode } = useContext(ThemeContext);
+
   const items: Certification[] = [
     {
       title: "AWS Certified Cloud Practitioner Certification",
@@ -37,7 +40,7 @@ const AwardsAndCertifications: React.FC = () => {
     },
     {
       title:
-        '"Take Ownership to Deliver Fast" award twice at Philips for consistently exceeding expectations and delivering highquality deliverables',
+        '"Take Ownership to Deliver Fast" award twice at Philips for consistently exceeding expectations and delivering high-quality deliverables',
       year: "2021",
       type: "award",
     },
@@ -71,37 +74,37 @@ const AwardsAndCertifications: React.FC = () => {
   ];
 
   const getIcon = (type: string, highlight: boolean = false) => {
-    switch (type) {
-      case "certification":
-        return (
-          <Sun
-            className={`w-6 h-6 ${
-              highlight ? "text-orange-500" : "text-gray-400"
-            }`}
-          />
-        );
-      case "award":
-        return (
-          <Trophy
-            className={`w-6 h-6 ${
-              highlight ? "text-yellow-500" : "text-gray-400"
-            }`}
-          />
-        );
-      default:
-        return (
-          <Award
-            className={`w-6 h-6 ${
-              highlight ? "text-blue-500" : "text-gray-400"
-            }`}
-          />
-        );
-    }
+    const baseColor = isDarkMode ? "text-gray-500" : "text-gray-400";
+    const highlightColor = {
+      certification: "text-orange-500",
+      award: "text-yellow-500",
+      course: "text-blue-500",
+    }[type];
+
+    return {
+      certification: (
+        <Sun className={`w-6 h-6 ${highlight ? highlightColor : baseColor}`} />
+      ),
+      award: (
+        <Trophy
+          className={`w-6 h-6 ${highlight ? highlightColor : baseColor}`}
+        />
+      ),
+      course: (
+        <Award
+          className={`w-6 h-6 ${highlight ? highlightColor : baseColor}`}
+        />
+      ),
+    }[type];
   };
 
   return (
-    <div className="min-h-screen bg-black text-white py-16 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div
+      className={`min-h-screen ${
+        isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
+      } py-16 px-4`}
+    >
+      <div className="max-w-2xl mx-auto">
         <h1 className="text-5xl font-bold mb-16 animate-fade-in">
           AWARDS & CERTIFICATIONS
         </h1>
@@ -121,12 +124,18 @@ const AwardsAndCertifications: React.FC = () => {
                     className={`text-lg ${
                       item.highlight
                         ? "text-orange-500 font-semibold"
-                        : "text-gray-300"
+                        : isDarkMode
+                        ? "text-gray-300"
+                        : "text-gray-700"
                     }`}
                   >
                     {item.title}
                   </h3>
-                  <span className="text-gray-500 whitespace-nowrap">
+                  <span
+                    className={`${
+                      isDarkMode ? "text-gray-500" : "text-gray-600"
+                    } whitespace-nowrap`}
+                  >
                     {item.year}
                   </span>
                 </div>
