@@ -26,12 +26,12 @@ const Header = () => {
           </button>
 
           {/* Navigation - Original Design for Desktop */}
-          <nav className="hidden md:flex items-center m-auto space-x-12">
+          <nav className="hidden md:flex items-center m-auto space-x-7">
             <div className="text-2xl font-bold mr-20">
               Florien<span className="text-blue-600">.</span>
             </div>
             <a
-              href="#"
+              href="/"
               className="text-amber-500 hover:text-amber-600 transition-colors duration-200"
             >
               Home
@@ -47,6 +47,12 @@ const Header = () => {
               className="hover:text-amber-500 transition-colors duration-200"
             >
               Projects
+            </a>
+            <a
+              href="awards"
+              className="hover:text-amber-500 transition-colors duration-200"
+            >
+              Awards
             </a>
             <a
               href="#"
