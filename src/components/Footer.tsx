@@ -41,7 +41,9 @@ const Footer: React.FC = () => {
           {/* Social Links */}
           <div className="flex items-center space-x-5 order-2 sm:order-3">
             <a
-              href="#"
+              href="https://www.linkedin.com/in/mahoro-florien"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`transition-colors duration-200 hover:text-orange-500 ${
                 isDarkMode ? "text-neutral-400" : "text-neutral-600"
               }`}
@@ -50,7 +52,9 @@ const Footer: React.FC = () => {
               <Linkedin size={18} />
             </a>
             <a
-              href="#"
+              href="https://twitter.com/your-profile"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`transition-colors duration-200 hover:text-orange-500 ${
                 isDarkMode ? "text-neutral-400" : "text-neutral-600"
               }`}
@@ -59,7 +63,9 @@ const Footer: React.FC = () => {
               <Twitter size={18} />
             </a>
             <a
-              href="#"
+              href="https://github.com/florien2208"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`transition-colors duration-200 hover:text-orange-500 ${
                 isDarkMode ? "text-neutral-400" : "text-neutral-600"
               }`}
@@ -68,7 +74,9 @@ const Footer: React.FC = () => {
               <Github size={18} />
             </a>
             <a
-              href="#"
+              href="mailto:your-email@example.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`transition-colors duration-200 hover:text-orange-500 ${
                 isDarkMode ? "text-neutral-400" : "text-neutral-600"
               }`}
