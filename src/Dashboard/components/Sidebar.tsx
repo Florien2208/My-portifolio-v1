@@ -103,7 +103,7 @@ const Sidebar: React.FC = () => {
               label: "My Wallet",
             },
             {
-              path: "/signi",
+              path: "Contact-Us",
               icon: <MdContactEmergency size={18} />,
               label: "Contact us",
             },

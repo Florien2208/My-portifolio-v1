@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Reference from "./Dashboard/pages/reference/Reference";
 import ProjectsPage from "./pages/ProjectsPage";
 import AwardsAndCertificationsWrapper from "./pages/AwardsAndCertifications";
+import ContactUs from "./Dashboard/pages/contact/ContactUs";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -44,6 +45,10 @@ export default function App() {
         {
           path: "References",
           element:<Reference />,
+        },
+        {
+          path: "Contact-Us",
+          element:<ContactUs />,
         },
       ],
     },
