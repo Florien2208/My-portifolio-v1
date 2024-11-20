@@ -1,7 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../components/constants/ThemeContext";
 
-const jobTitles = ["Python Developer", "Software Engineer", "ML Engineer"];
+const jobTitles = [
+  "Software Engineer",
+  "Graphic Designer",
+  "Python Developer",
+  "ML Engineer",
+];
 
 const TypewriterJobTitle = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../components/constants/ThemeContext";
-import { ExternalLink, Github, Moon, Sun } from "lucide-react";
+import { ExternalLink, Github} from "lucide-react";
 // import ProjectDetailPageWrapper from "./parts/ProjectDetailPage";
 
 interface Technology {
@@ -88,7 +88,7 @@ const ProjectCard: React.FC<{ project: Project; isDarkMode: boolean }> = ({
 };
 
 const ProjectsPage: React.FC = () => {
-  const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
+  const { isDarkMode } = useContext(ThemeContext);
 
   const projects: Project[] = [
     {
@@ -182,23 +182,7 @@ const ProjectsPage: React.FC = () => {
               Explore my latest work and side projects
             </p>
           </div>
-          <button
-            onClick={toggleDarkMode}
-            className={`p-3 rounded-full transition-colors duration-200 ${
-              isDarkMode
-                ? "bg-gray-800 hover:bg-gray-700"
-                : "bg-white hover:bg-gray-100"
-            } shadow-lg`}
-            aria-label={
-              isDarkMode ? "Switch to light mode" : "Switch to dark mode"
-            }
-          >
-            {isDarkMode ? (
-              <Sun className="w-6 h-6 text-yellow-400" />
-            ) : (
-              <Moon className="w-6 h-6 text-gray-700" />
-            )}
-          </button>
+         
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project) => (
