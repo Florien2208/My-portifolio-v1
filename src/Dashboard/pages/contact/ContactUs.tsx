@@ -1,5 +1,5 @@
 // src/components/ContactPage.tsx
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 
 import { format } from "date-fns";
@@ -22,6 +22,8 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { ContactMessage } from "./contact.types";
+import { ThemeContext } from "@/components/constants/ThemeContext";
+
 
 const ContactUs: React.FC = () => {
   // Sample data - replace with your actual data fetching logic
@@ -42,6 +44,7 @@ const ContactUs: React.FC = () => {
   const [selectedMessage, setSelectedMessage] = useState<ContactMessage | null>(
     null
   );
+  const { isDarkMode } = useContext(ThemeContext);
   const [replyMessage, setReplyMessage] = useState("");
 
   const handleReply = (message: ContactMessage) => {
@@ -53,10 +56,7 @@ const ContactUs: React.FC = () => {
     if (!selectedMessage) return;
 
     try {
-      // Add your API call here to send the reply
-      // await sendReply(selectedMessage.id, replyMessage);
-
-      // Update the message status in the local state
+     
       setMessages(
         messages.map((msg) =>
           msg.id === selectedMessage.id
@@ -76,7 +76,13 @@ const ContactUs: React.FC = () => {
 
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-bold mb-6">Contact Messages</h1>
+      <h1
+        className={`text-2xl font-bold mb-6 ${
+          isDarkMode ? "text-white" : "text-black"
+        }`}
+      >
+        Contact Messages
+      </h1>
 
       <div className="rounded-md border">
         <Table>
@@ -93,7 +99,10 @@ const ContactUs: React.FC = () => {
           </TableHeader>
           <TableBody>
             {messages.map((message) => (
-              <TableRow key={message.id}>
+              <TableRow
+                key={message.id}
+                className={`${isDarkMode ? "text-white" : "text-black"}`}
+              >
                 <TableCell>
                   {format(new Date(message.createdAt), "MMM dd, yyyy")}
                 </TableCell>

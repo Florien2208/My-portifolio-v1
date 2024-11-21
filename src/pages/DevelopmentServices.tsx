@@ -56,6 +56,13 @@ const DevelopmentServices = () => {
       bgColor: "bg-blue-200",
     },
     {
+      imgSrc: fullstack,
+      title: "Graphic Design",
+      description:
+        "UI/UX design using different platform like figma ,adobe illustrator",
+      bgColor: "bg-cyan-200",
+    },
+    {
       imgSrc: cloud,
       title: "Cloud Services",
       description: "Scalable and Cutting-Edge Cloud Solutions",
