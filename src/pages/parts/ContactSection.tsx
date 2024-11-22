@@ -307,7 +307,7 @@ const ContactSection: React.FC = () => {
                 <span>florien2208</span>
               </a>
               <a
-                href="www.linkedin.com/in/mahoro-florien"
+                href="https://www.linkedin.com/in/florien-mahoro-mpakanyi-398515258/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex items-center gap-3 ${
@@ -317,7 +317,6 @@ const ContactSection: React.FC = () => {
                 <Linkedin className="w-5 h-5" />
                 <span>mahoro-florien</span>
               </a>
-             
             </div>
           </div>
         </div>
