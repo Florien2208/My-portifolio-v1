@@ -22,10 +22,10 @@ import { ArrowRight } from "lucide-react";
 
 const HomePage: React.FC = () => {
   const { isDarkMode } = useContext(ThemeContext);
-  const bgColor = isDarkMode ? "bg-purple-900" : "bg-purple-100";
+  const bgColor = isDarkMode ? "bg-gray-800" : "bg-purple-100";
   const textColor = isDarkMode ? "text-white" : "text-purple-900";
-  const cardBgColor = isDarkMode ? "bg-purple-800" : "bg-purple-200";
-  const headerBgColor = isDarkMode ? "bg-purple-700" : "bg-purple-300";
+  const cardBgColor = isDarkMode ? "bg-gray-700" : "bg-purple-200";
+  const headerBgColor = isDarkMode ? "bg-gray-500" : "bg-purple-300";
   return (
     <div
       className={`min-h-screen flex flex-col ${
@@ -509,7 +509,7 @@ const HomePage: React.FC = () => {
             </p>
             <div className="mt-8">
               <a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/mahoro-florien/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`text-blue-500 hover:underline ${
