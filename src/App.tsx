@@ -9,6 +9,7 @@ import Reference from "./Dashboard/pages/reference/Reference";
 import ProjectsPage from "./pages/ProjectsPage";
 import AwardsAndCertificationsWrapper from "./pages/AwardsAndCertifications";
 import ContactUs from "./Dashboard/pages/contact/ContactUs";
+import NotFound from "./constants/NotFound";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -22,35 +23,39 @@ export default function App() {
         },
         {
           path: "projects",
-          element: <ProjectsPage/>,
+          element: <ProjectsPage />,
         },
         {
-          path:"awards",
-          element:<AwardsAndCertificationsWrapper/>
-        }
+          path: "awards",
+          element: <AwardsAndCertificationsWrapper />,
+        },
       ],
     },
     {
       path: "Dashboard",
-      element: <AdminLayout/>,
+      element: <AdminLayout />,
       children: [
         {
           path: "",
-          element:<Dashboard />,
+          element: <Dashboard />,
         },
         {
           path: "Experiences",
-          element:<ExperienceSection />,
+          element: <ExperienceSection />,
         },
         {
           path: "References",
-          element:<Reference />,
+          element: <Reference />,
         },
         {
           path: "Contact-Us",
-          element:<ContactUs />,
+          element: <ContactUs />,
         },
       ],
+    },
+    {
+      path: "*",
+      element: <NotFound />,
     },
   ]);
 
