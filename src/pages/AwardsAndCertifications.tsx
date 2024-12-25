@@ -1,12 +1,12 @@
-import React, { useContext, useState,  useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   Award,
   Trophy,
   Sun,
   ChevronDown,
-  
   Check,
-  
+  FileText,
+  Download,
 } from "lucide-react";
 import { ThemeContext } from "../components/constants/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
@@ -19,12 +19,15 @@ interface Certification {
   description?: string;
   skills?: string[];
   issuer?: string;
+  certificateUrl?: string;
 }
 
 const AwardsAndCertifications: React.FC = () => {
   const { isDarkMode } = useContext(ThemeContext);
   const [expandedItem, setExpandedItem] = useState<number | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+   const [showPdfModal, setShowPdfModal] = useState(false);
+   const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
 
   const items: Certification[] = [
     {
@@ -36,6 +39,7 @@ const AwardsAndCertifications: React.FC = () => {
       description:
         "Validated foundational understanding of AWS Cloud services and core architectural principles.",
       skills: ["Cloud Computing", "AWS Services", "Cloud Security"],
+      certificateUrl: "/certificates/aws-cloud-practitioner.pdf", 
     },
     {
       title: "Microsoft Certified: Azure Developer Associate",
@@ -46,6 +50,7 @@ const AwardsAndCertifications: React.FC = () => {
       description:
         "Demonstrated expertise in designing, building, testing, and maintaining cloud solutions on Microsoft Azure.",
       skills: ["Azure Development", "Cloud Architecture", "DevOps"],
+      certificateUrl: "/certificates/aws-cloud-practitioner.pdf", 
     },
     {
       title: "Capstone Project First Place",
@@ -56,6 +61,7 @@ const AwardsAndCertifications: React.FC = () => {
       description:
         "Won first place among 30+ teams for the development of the NYCANX project, demonstrating exceptional innovation and technical skill.",
       skills: ["Project Management", "Innovation", "Team Leadership"],
+      certificateUrl: "/certificates/aws-cloud-practitioner.pdf", 
     },
     // ... (other items remain similar)
   ];
@@ -94,6 +100,57 @@ const AwardsAndCertifications: React.FC = () => {
     setExpandedItem(expandedItem === index ? null : index);
   };
 
+
+
+    const handleViewCertificate = (url: string) => {
+      setSelectedPdf(url);
+      setShowPdfModal(true);
+    };
+
+    const handleDownloadCertificate = (url: string, title: string) => {
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${title
+        .replace(/\s+/g, "-")
+        .toLowerCase()}-certificate.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    };
+
+    const PdfModal = () => {
+      if (!selectedPdf) return null;
+
+      return (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+          onClick={() => setShowPdfModal(false)}
+        >
+          <motion.div
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.9 }}
+            className="relative w-full max-w-4xl h-[80vh] bg-white rounded-lg shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+              onClick={() => setShowPdfModal(false)}
+            >
+              <span className="sr-only">Close</span>×
+            </button>
+            <iframe
+              src={`${selectedPdf}#toolbar=0`}
+              className="w-full h-full rounded-lg"
+              title="Certificate PDF Viewer"
+            />
+          </motion.div>
+        </motion.div>
+      );
+    };
   return (
     <div
       className={`
@@ -297,6 +354,47 @@ const AwardsAndCertifications: React.FC = () => {
                         </div>
                       </div>
                     )}
+                    {item.certificateUrl && (
+                      <div className="mt-4 flex gap-4">
+                        <button
+                          onClick={() =>
+                            handleViewCertificate(item.certificateUrl!)
+                          }
+                          className={`
+                            flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium
+                            ${
+                              isDarkMode
+                                ? "bg-gray-700 hover:bg-gray-600 text-white"
+                                : "bg-gray-200 hover:bg-gray-300 text-gray-800"
+                            }
+                            transition-all duration-300
+                          `}
+                        >
+                          <FileText className="w-4 h-4" />
+                          View Certificate
+                        </button>
+                        <button
+                          onClick={() =>
+                            handleDownloadCertificate(
+                              item.certificateUrl!,
+                              item.title
+                            )
+                          }
+                          className={`
+                            flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium
+                            ${
+                              isDarkMode
+                                ? "bg-orange-600 hover:bg-orange-500 text-white"
+                                : "bg-orange-500 hover:bg-orange-600 text-white"
+                            }
+                            transition-all duration-300
+                          `}
+                        >
+                          <Download className="w-4 h-4" />
+                          Download
+                        </button>
+                      </div>
+                    )}
                   </motion.div>
                 )}
               </motion.div>
@@ -304,7 +402,7 @@ const AwardsAndCertifications: React.FC = () => {
           </AnimatePresence>
         </div>
       </div>
-
+      <AnimatePresence>{showPdfModal && <PdfModal />}</AnimatePresence>
       {/* Decorative Background Elements */}
       <div
         className={`
