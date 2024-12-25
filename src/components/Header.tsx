@@ -16,7 +16,6 @@ const Header = () => {
     >
       <div className="max-w-7xl m-auto px-6">
         <div className="flex justify-between items-center h-20">
-          
           <button
             onClick={toggleMenu}
             className="md:hidden p-2"
@@ -40,13 +39,13 @@ const Header = () => {
               href="dashboard"
               className="hover:text-amber-500 transition-colors duration-200"
             >
-              Solutions
+              Dashboard
             </a>
             <a
-              href="projects"
+              href="solutions"
               className="hover:text-amber-500 transition-colors duration-200"
             >
-              Projects
+              Solutions
             </a>
             <a
               href="awards"
