@@ -66,8 +66,8 @@ const ContactSection: React.FC = () => {
     // Enhanced subject validation
     if (!formData.subject.trim()) {
       newErrors.subject = "Subject is required";
-    } else if (formData.subject.length < 3) {
-      newErrors.subject = "Subject must be at least 3 characters long";
+    } else if (formData.subject.length < 5) {
+      newErrors.subject = "Subject must be at least 5 characters long";
     } else if (formData.subject.length > 100) {
       newErrors.subject = "Subject cannot exceed 100 characters";
     }
@@ -107,16 +107,20 @@ const ContactSection: React.FC = () => {
         body: JSON.stringify(formData),
       });
 
+      // Log the raw response text for debugging
       const responseText = await response.text();
       console.log("Response Text:", responseText);
 
       let data;
       try {
         data = JSON.parse(responseText);
-        console.log("data-",data)
       } catch (error) {
         console.error("Failed to parse JSON:", error);
         throw new Error("Failed to parse JSON response");
+      }
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Failed to send message");
       }
 
       showNotification(
@@ -125,6 +129,7 @@ const ContactSection: React.FC = () => {
       );
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
+      console.error("Error during form submission:", error);
       showNotification(
         "error",
         error instanceof Error ? error.message : "Failed to send message"
@@ -133,6 +138,7 @@ const ContactSection: React.FC = () => {
       setIsSubmitting(false);
     }
   };
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
