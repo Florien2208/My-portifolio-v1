@@ -107,10 +107,16 @@ const ContactSection: React.FC = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      const responseText = await response.text();
+      console.log("Response Text:", responseText);
 
-      if (!response.ok) {
-        throw new Error(data.message || "Failed to send message");
+      let data;
+      try {
+        data = JSON.parse(responseText);
+        console.log("data-",data)
+      } catch (error) {
+        console.error("Failed to parse JSON:", error);
+        throw new Error("Failed to parse JSON response");
       }
 
       showNotification(
