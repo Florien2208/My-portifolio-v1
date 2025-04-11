@@ -1,12 +1,19 @@
-import  { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { ThemeContext } from "./constants/ThemeContext";
+import { NavLink } from "react-router-dom"; // Import NavLink too
 
 const Header = () => {
   const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  // Active link style handler
+  const getLinkClass = ({ isActive }: { isActive: boolean }) =>
+    isActive
+      ? "text-amber-500 transition-colors duration-200"
+      : "hover:text-amber-500 transition-colors duration-200";
 
   return (
     <header
@@ -29,42 +36,27 @@ const Header = () => {
             <div className="text-2xl font-bold mr-20">
               Florien<span className="text-blue-600">.</span>
             </div>
-            <a
-              href="/"
-              className="text-amber-500 hover:text-amber-600 transition-colors duration-200"
-            >
+            <NavLink to="/" className={getLinkClass} end>
               Home
-            </a>
-            {/* <a
-              href="dashboard"
-              className="hover:text-amber-500 transition-colors duration-200"
+            </NavLink>
+            {/* <NavLink
+              to="dashboard"
+              className={getLinkClass}
             >
               Dashboard
-            </a> */}
-            <a
-              href="my-experiences"
-              className="hover:text-amber-500 transition-colors duration-200"
-            >
+            </NavLink> */}
+            <NavLink to="my-experiences" className={getLinkClass}>
               Experiences
-            </a>
-            <a
-              href="solutions"
-              className="hover:text-amber-500 transition-colors duration-200"
-            >
+            </NavLink>
+            <NavLink to="solutions" className={getLinkClass}>
               Solutions
-            </a>
-            <a
-              href="awards"
-              className="hover:text-amber-500 transition-colors duration-200"
-            >
+            </NavLink>
+            <NavLink to="awards" className={getLinkClass}>
               Awards
-            </a>
-            <a
-              href="#"
-              className="hover:text-amber-500 transition-colors duration-200"
-            >
+            </NavLink>
+            <NavLink to="contact" className={getLinkClass}>
               Contact
-            </a>
+            </NavLink>
 
             {/* Dark Mode Toggle */}
             <button
@@ -103,30 +95,47 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t ">
             <nav className="flex flex-col space-y-4">
-              <a
-                href="#"
-                className="text-amber-500 hover:text-amber-600 transition-colors duration-200 px-2"
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `px-2 transition-colors duration-200 ${
+                    isActive ? "text-amber-500" : "hover:text-amber-500"
+                  }`
+                }
+                end
               >
                 Home
-              </a>
-              <a
-                href="#"
-                className="hover:text-amber-500 transition-colors duration-200 px-2"
+              </NavLink>
+              <NavLink
+                to="solutions"
+                className={({ isActive }) =>
+                  `px-2 transition-colors duration-200 ${
+                    isActive ? "text-amber-500" : "hover:text-amber-500"
+                  }`
+                }
               >
                 Solutions
-              </a>
-              <a
-                href="#"
-                className="hover:text-amber-500 transition-colors duration-200 px-2"
+              </NavLink>
+              <NavLink
+                to="my-experiences"
+                className={({ isActive }) =>
+                  `px-2 transition-colors duration-200 ${
+                    isActive ? "text-amber-500" : "hover:text-amber-500"
+                  }`
+                }
               >
-                Projects
-              </a>
-              <a
-                href="#"
-                className="hover:text-amber-500 transition-colors duration-200 px-2"
+                Experiences
+              </NavLink>
+              <NavLink
+                to="contact"
+                className={({ isActive }) =>
+                  `px-2 transition-colors duration-200 ${
+                    isActive ? "text-amber-500" : "hover:text-amber-500"
+                  }`
+                }
               >
                 Contact
-              </a>
+              </NavLink>
             </nav>
           </div>
         )}
