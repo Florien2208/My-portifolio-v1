@@ -35,11 +35,17 @@ const Header = () => {
             >
               Home
             </a>
-            <a
+            {/* <a
               href="dashboard"
               className="hover:text-amber-500 transition-colors duration-200"
             >
               Dashboard
+            </a> */}
+            <a
+              href="my-experiences"
+              className="hover:text-amber-500 transition-colors duration-200"
+            >
+              Experiences
             </a>
             <a
               href="solutions"

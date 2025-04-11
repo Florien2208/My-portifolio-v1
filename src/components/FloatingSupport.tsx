@@ -372,8 +372,6 @@ const FloatingSupport = (): JSX.Element => {
             </div>
           </div>
         </div>
-
-    
       </div>
 
       {(isModalOpen || chatState !== "closed") && (

@@ -10,6 +10,8 @@ import AwardsAndCertificationsWrapper from "./pages/AwardsAndCertifications";
 import ContactUs from "./Dashboard/pages/contact/ContactUs";
 import NotFound from "./constants/NotFound";
 import SolutionPage from "./pages/SolutionsPage";
+import WorkExperience from "./pages/experience/WorkExperience";
+
 
 export default function App() {
   const router = createBrowserRouter([
@@ -29,8 +31,13 @@ export default function App() {
           path: "awards",
           element: <AwardsAndCertificationsWrapper />,
         },
+        {
+          path: "my-experiences",
+          element: <WorkExperience />,
+        },
       ],
     },
+  
     {
       path: "Dashboard",
       element: <AdminLayout />,
