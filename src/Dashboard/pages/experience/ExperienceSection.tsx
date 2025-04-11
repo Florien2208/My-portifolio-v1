@@ -40,6 +40,7 @@ export default function ExperienceSection() {
     try {
       const response = await fetch("/api/experiences");
       const data = await response.json();
+      console.log("data",data.data)
       setExperiences(data.data);
       setError(null);
     } catch (error) {

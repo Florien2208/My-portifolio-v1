@@ -37,6 +37,24 @@ const ContactUs: React.FC = () => {
       createdAt: "2024-11-09T10:00:00Z",
       status: "pending",
     },
+    {
+      id: "1",
+      name: "John Doe",
+      email: "john@example.com",
+      subject: "General Inquiry",
+      message: "Hello, I have a question about your services.",
+      createdAt: "2024-11-09T10:00:00Z",
+      status: "pending",
+    },
+    {
+      id: "1",
+      name: "John Doe",
+      email: "john@example.com",
+      subject: "General Inquiry",
+      message: "Hello, I have a question about your services.",
+      createdAt: "2024-11-09T10:00:00Z",
+      status: "pending",
+    },
     // Add more sample messages as needed
   ]);
 
